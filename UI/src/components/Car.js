@@ -4,6 +4,7 @@ import {CarContext} from '../contexts/CarContext'
 
 function Car({id, name, image, price, color}) {
   const {handleDetail} = useContext(CarContext)
+
   const getColor = (color) => {
     switch (color) {
       case 'C_T':
@@ -36,7 +37,7 @@ function Car({id, name, image, price, color}) {
         </div>
         <div className='desc'>
           <h3>{name}</h3>
-          <p>{price} VND</p>
+          <p>{price.toLocaleString('vi-VN')} VND</p>
           <span
             className='car-color'
             style={{color: getColorCss(color)}}

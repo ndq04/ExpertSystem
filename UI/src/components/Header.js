@@ -8,9 +8,6 @@ function Header() {
           <Link to='/'>Trang chủ</Link>
         </li>
         <li>
-          <Link to='/timkiem'>Tìm kiếm xe</Link>
-        </li>
-        <li>
           <Link to='/tuvan'>Tư vấn mua xe</Link>
         </li>
       </ul>

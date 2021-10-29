@@ -9,16 +9,36 @@ const CarContextProvider = ({children}) => {
     )
     return initialCars || []
   })
+
   const [car, setCar] = useState({})
-  useEffect(() => {
+  const handleALl = () => {
     fetch('http://127.0.0.1:2000/api/getAll')
       .then((res) => res.json())
       .then((data) => setCars(data.cars))
       .catch((err) => console.log(err))
+  }
+  useEffect(() => {
+    handleALl()
   }, [])
+  const [state, setState] = useState(() => {
+    const initialState = JSON.parse(
+      localStorage.getItem('state')
+    )
+    return (
+      initialState || {
+        company: 'CO_B',
+        type: 'T_M',
+        price: 'P_1',
+      }
+    )
+  })
   useEffect(() => {
     localStorage.setItem('cars', JSON.stringify(cars))
   }, [cars])
+
+  useEffect(() => {
+    localStorage.setItem('state', JSON.stringify(state))
+  }, [state])
 
   const handleDetail = (id) => {
     fetch(`http://127.0.0.1:2000/api/getOne/${id}`)
@@ -26,11 +46,41 @@ const CarContextProvider = ({children}) => {
       .then((data) => setCar(data.car))
       .catch((err) => console.log(err))
   }
+  const handleChange = (e) => {
+    const {value, name} = e.target
+    console.log(value, name)
+    setState({
+      ...state,
+      [name]: value,
+    })
+  }
+
+  const handleSearch = () => {
+    fetch('http://127.0.0.1:2000/api/search', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        company: state.company,
+        type: state.type,
+        price: state.price,
+      }),
+    })
+      .then((res) => res.json())
+      // .then((data) => console.log(data.cars))
+      .then((data) => setCars(data.cars))
+      .catch((err) => console.log(err))
+  }
 
   const data = {
     cars,
     car,
+    state,
     handleDetail,
+    handleSearch,
+    handleChange,
+    handleALl,
   }
   return (
     <CarContext.Provider value={data}>

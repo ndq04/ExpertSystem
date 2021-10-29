@@ -1,9 +1,12 @@
 import {useContext} from 'react'
+import {useHistory} from 'react-router-dom'
 import {CarContext} from '../contexts/CarContext'
 
 function Detail() {
   const {car} = useContext(CarContext)
-
+  const {name, image, color, price} = car
+  const history = useHistory()
+  console.log(history)
   const getColor = (color) => {
     switch (color) {
       case 'C_T':
@@ -30,14 +33,15 @@ function Detail() {
   }
   return (
     <div>
-      <img src={car.image} alt={car.name} />
-      <p>{car.name}</p>
-      <p>{car.price}</p>
+      <button onClick={() => history.goBack()}>Back</button>
+      <img src={image} alt={name} />
+      <p>{name}</p>
+      <p>{price} VND</p>
       <span
         className='car-color'
-        style={{color: getColorCss(car.color)}}
+        style={{color: getColorCss(color)}}
       >
-        {getColor(car.color)}
+        {getColor(color)}
       </span>
     </div>
   )

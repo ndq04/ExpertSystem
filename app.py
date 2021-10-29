@@ -50,13 +50,34 @@ def search():
     cursor.execute(sql_str)
     data=cursor.fetchall()
     cars=[]
-    print(data)
     for item in data:
       car={'id':item[0],'name':item[1],'image':item[2], 'price':item[3],'color':item[4]}
       cars.append(car)
     return jsonify({'cars':cars})
   except Exception as ex:
     return jsonify({'message':'Error!'})
+
+@app.route('/api/tuvan', methods = ['POST'])
+@cross_origin()
+def tuvan():
+  try:
+    cursor=mysql.connection.cursor()
+    user_input = {
+    "gioitinh": request.json["gioitinh"],
+    "nghenghiep": request.json["nghenghiep"],
+    "sothich":request.json["sothich"],
+    "thunhap":request.json["thunhap"],
+  }
+    sql_str="SELECT * FROM oto WHERE id_Color= '"+user_input["gioitinh"]+"' and id_Price = '"+user_input["nghenghiep"]+"' and id_Type = '"+user_input["sothich"]+"' and id_Company = '"+user_input["thunhap"]+"'  "
+    cursor.execute(sql_str)
+    data=cursor.fetchone()
+    if data != None:
+      car={'id':data[0],'name':data[1],'image':data[2], 'price':data[3],'color':data[4]}
+    else :
+      return jsonify({'car':'Not found!'})
+    return jsonify({'car':car})
+  except Exception as ex:
+    return jsonify({'car':'Error!'})
 
 @app.route('/api/getOne/<id>', methods = ['GET'])
 @cross_origin()
@@ -74,28 +95,7 @@ def getOne(id):
   except Exception as ex:
     return jsonify({'message':'Error!'})
 
-@app.route('/api/tuvan/', methods = ['GET'])
-@cross_origin()
-def tuvan(id):
-  try:
-    cursor=mysql.connection.cursor()
-    user_input = {
-    "gioitinh": request.json["gioitinh"],
-    "nghenghiep": request.json["nghenghiep"],
-    "sothich":request.json["sothich"],
-    "thunhap":request.json["thunhap"],
-  }
-    sql_str="SELECT * FROM oto WHERE (id_Color= '"+user_input["gioitinh"]+"' or id_Color= '"+user_input["sothich"]+"') and id_Price = '"+user_input["thunhap"]+"' and id_Price = '"+user_input["price"]+"' "
-    cursor.execute(sql_str)
-    data=cursor.fetchall()
-    cars=[]
-    print(data)
-    for item in data:
-      car={'id':item[0],'name':item[1],'image':item[2], 'price':item[3],'color':item[4]}
-      cars.append(car)
-    return jsonify({'cars':cars})
-  except Exception as ex:
-    return jsonify({'message':'Error!'})
+
 
 if __name__ == "__main__":
   app.run(debug=True)
