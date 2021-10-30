@@ -6,7 +6,6 @@ function Detail() {
   const {car} = useContext(CarContext)
   const {name, image, color, price} = car
   const history = useHistory()
-  console.log(history)
   const getColor = (color) => {
     switch (color) {
       case 'C_T':

@@ -1,9 +1,9 @@
 import {Route, Switch} from 'react-router-dom'
 import Error from './components/Error'
 import Header from './components/Header'
-import Suggest from './components/Suggest'
 import Detail from './components/Detail'
 import Home from './components/Home'
+import Suggest from './components/Suggest'
 
 function App() {
   return (

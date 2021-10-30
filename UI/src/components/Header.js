@@ -2,7 +2,7 @@ import {Link} from 'react-router-dom'
 function Header() {
   return (
     <div className='header'>
-      <h3>Logo</h3>
+      <h3>SHOWROOM</h3>
       <ul>
         <li>
           <Link to='/'>Trang chủ</Link>

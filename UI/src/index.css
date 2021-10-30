@@ -38,3 +38,21 @@ img {
   display: block;
   max-width: 100%;
 }
+.header {
+  height: 10vh;
+  padding: 0 30px;
+  margin-bottom: 10px;
+  background-color: #1888ff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header ul {
+  display: flex;
+}
+.header ul li {
+  margin-left: 20px;
+  border: 1px solid #f1f1f1;
+  padding: 6px 16px;
+  border-radius: 6px;
+}

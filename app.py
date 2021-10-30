@@ -66,9 +66,9 @@ def tuvan():
     "gioitinh": request.json["gioitinh"],
     "nghenghiep": request.json["nghenghiep"],
     "sothich":request.json["sothich"],
-    "thunhap":request.json["thunhap"],
+    "quocgia":request.json["quocgia"],
   }
-    sql_str="SELECT * FROM oto WHERE id_Color= '"+user_input["gioitinh"]+"' and id_Price = '"+user_input["nghenghiep"]+"' and id_Type = '"+user_input["sothich"]+"' and id_Company = '"+user_input["thunhap"]+"'  "
+    sql_str="SELECT * FROM oto WHERE id_Color= '"+user_input["gioitinh"]+"' and id_Price = '"+user_input["nghenghiep"]+"' and id_Type = '"+user_input["sothich"]+"' and id_Company = '"+user_input["quocgia"]+"'  "
     cursor.execute(sql_str)
     data=cursor.fetchone()
     if data != None:
