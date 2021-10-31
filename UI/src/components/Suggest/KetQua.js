@@ -1,4 +1,4 @@
-function KetQua({name, navigation, ...values}) {
+function KetQua({name, setName, navigation, ...values}) {
   const {
     gioiTinh,
     gioiTinhID,
@@ -11,8 +11,15 @@ function KetQua({name, navigation, ...values}) {
     quocGiaValue,
     sugestCar,
   } = values
+  const handleBackHome = () => {
+    setName('')
+    navigation.go(0)
+  }
   return (
     <div>
+      <h3 className='heading heading--name'>
+        Xin chào <span>{name}</span>
+      </h3>
       <h3>
         {gioiTinhID} - {gioiTinh} {gioiTinhValue}
       </h3>
@@ -25,7 +32,6 @@ function KetQua({name, navigation, ...values}) {
       <h3>
         {quocGiaID} {quocGiaValue}
       </h3>
-      <h3>Xin chào {name}</h3>
       {typeof sugestCar === 'object' && (
         <div>
           <img src={sugestCar.image} alt={sugestCar.name} />
@@ -37,13 +43,14 @@ function KetQua({name, navigation, ...values}) {
       )}
       {typeof sugestCar === 'string' && (
         <div>
-          <h4>Không có sản phẩm phù hợp</h4>
+          <h4>
+            Rất tiếc! Không có sản phẩm phù hợp trong cửa
+            hàng!
+          </h4>
         </div>
       )}
 
-      <button onClick={() => navigation.previous()}>
-        Trở lại
-      </button>
+      <button onClick={handleBackHome}>Trở lại</button>
     </div>
   )
 }

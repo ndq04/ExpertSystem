@@ -1,0 +1,130 @@
+.content {
+  background-image: url(../../images/bg1.png);
+  background-position: top;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  animation: slide-content 0.8s ease;
+  user-select: none;
+}
+.content--gt {
+  background-image: url(../../images/bg3.png);
+}
+.content--nn {
+  background-image: url(../../images/bg2.png);
+}
+.content--st {
+  background-image: url(../../images/bg4.png);
+}
+.content--qg {
+  background-image: url(../../images/bg5.png);
+}
+@keyframes slide-content {
+  from {
+    opacity: 0;
+    transform: scale(1.4);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.btn {
+  border: none;
+  outline: none;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: #1877f2;
+  color: #fff;
+  font-size: 18px;
+  width: 100%;
+  margin-top: 20px;
+  border: 2px solid;
+}
+.btn:hover {
+  background: #4267b2;
+}
+.btn.btn--back {
+  background: #e41448;
+}
+.btn.btn--back:hover {
+  background: #c40434;
+}
+
+.form {
+  max-width: 500px;
+  width: 100%;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transform: translateX(-55%);
+  animation: slide-form 0.5s ease;
+}
+
+@keyframes slide-form {
+  from {
+    opacity: 0;
+    transform: translateX(-220%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-55%);
+  }
+}
+
+.form.form--lg {
+  height: 600px;
+}
+.form input {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 12px 20px;
+  font-size: 18px;
+  color: #326dee;
+  border-radius: 10px;
+  border: 1px solid rgba(47, 108, 238, 0.3);
+}
+
+.form input:focus {
+  border: 1px solid #326dee;
+}
+.form-head p {
+  font-size: 3.5rem;
+  color: #f1f1f1;
+  margin-bottom: 100px;
+  text-align: center;
+}
+.heading {
+  color: #f1f1f1;
+  font-size: 2rem;
+  text-align: center;
+}
+.heading.heading--name {
+  color: #4267b2;
+  font-weight: 500;
+}
+.form-item {
+  cursor: pointer;
+  text-align: center;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f1f1f1;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  color: #4267b2;
+  border: 2px solid;
+}
+.form-item.active,
+.form-item:hover {
+  color: #fff;
+  background: #19e635;
+  border: 2px solid;
+  font-size: 18px;
+  font-weight: 600;
+}

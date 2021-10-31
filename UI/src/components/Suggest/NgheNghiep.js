@@ -7,29 +7,35 @@ function NgheNghiep({handleNN, navigation}) {
     return data[Math.floor(Math.random() * data.length)]
   }
   const nghenghiep = {
-    congNhan_vienChuc: ['P_1', 'P_2', 'P_3'],
+    congNhan: ['P_1', 'P_2', 'P_3'],
+    giaoVien: ['P_1', 'P_2', 'P_3'],
     bacSi: ['P_2', 'P_3', 'P_4'],
-    nhanVienVP: ['P_2', 'P_3', 'P_4', 'P_5'],
+    nhanVienVP: ['P_2', 'P_3', 'P_4'],
     doanhNhan: ['P_3', 'P_4', 'P_5'],
   }
   const ngheNghiep = [
     {
       id: 'N1',
-      name: 'Công nhân/Viên chức',
-      value: random(nghenghiep.congNhan_vienChuc),
+      name: 'Công nhân',
+      value: random(nghenghiep.congNhan),
     },
     {
       id: 'N2',
+      name: 'Giáo viên',
+      value: random(nghenghiep.giaoVien),
+    },
+    {
+      id: 'N3',
       name: 'Bác sĩ',
       value: random(nghenghiep.bacSi),
     },
     {
-      id: 'N3',
+      id: 'N4',
       name: 'Nhân viên văn phòng',
       value: random(nghenghiep.nhanVienVP),
     },
     {
-      id: 'N4',
+      id: 'N5',
       name: 'Doanh nhân',
       value: random(nghenghiep.doanhNhan),
     },
@@ -38,29 +44,49 @@ function NgheNghiep({handleNN, navigation}) {
     setNgheNghiepID(id)
     handleNN({id, value})
   }
+  const handleNext = () => {
+    if (ngheNghiepID) {
+      navigation.next()
+    } else alert('Vui lòng chọn nghề nghiệp của bạn !')
+  }
   return (
-    <div>
-      <ul>
-        {ngheNghiep.map((item) => (
-          <li
-            key={item.id}
-            style={{
-              color: item.id === ngheNghiepID && 'blue',
-            }}
-            onClick={() =>
-              handleClick({id: item.id, value: item.value})
-            }
+    <div className='content content--nn'>
+      <div className='form form--lg'>
+        <h3 className='heading'>
+          Nghề nghiệp hiện tại của bạn ?
+        </h3>
+        <ul className='form-list'>
+          {ngheNghiep.map((item) => (
+            <li
+              key={item.id}
+              className={
+                item.id === ngheNghiepID
+                  ? 'form-item active'
+                  : 'form-item'
+              }
+              onClick={() =>
+                handleClick({
+                  id: item.id,
+                  value: item.value,
+                })
+              }
+            >
+              {item.name}
+            </li>
+          ))}
+        </ul>
+        <div>
+          <button className='btn' onClick={handleNext}>
+            Tiếp theo
+          </button>
+          <button
+            className='btn btn--back'
+            onClick={() => navigation.previous()}
           >
-            {item.name}
-          </li>
-        ))}
-      </ul>
-      <button onClick={() => navigation.previous()}>
-        Quay lại
-      </button>
-      <button onClick={() => navigation.next()}>
-        Tiếp theo
-      </button>
+            Quay lại
+          </button>
+        </div>
+      </div>
     </div>
   )
 }

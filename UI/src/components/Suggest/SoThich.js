@@ -7,10 +7,10 @@ function SoThich({handleST, navigation}) {
     return data[Math.floor(Math.random() * data.length)]
   }
   const sothich = {
-    thethao: ['T_M', 'T_Se'],
+    thethao: ['T_M', 'T_Se', 'T_Su'],
     dulich: ['T_M', 'T_Se', 'T_Su'],
-    khampha: ['T_Se', 'T_Su'],
-    congnghe: ['T_Se'],
+    khampha: ['T_M', 'T_Se', 'T_Su'],
+    congnghe: ['T_M', 'T_Se', 'T_Su'],
   }
   const soThich = [
     {
@@ -38,29 +38,49 @@ function SoThich({handleST, navigation}) {
     setSoThichID(id)
     handleST({id, value})
   }
+  const handleNext = () => {
+    if (soThichID) {
+      navigation.next()
+    } else alert('Vui lòng chọn sở thích của bạn !')
+  }
   return (
-    <div>
-      <ul>
-        {soThich.map((item) => (
-          <li
-            key={item.id}
-            style={{
-              color: item.id === soThichID && 'deeppink',
-            }}
-            onClick={() =>
-              handleClick({id: item.id, value: item.value})
-            }
+    <div className='content content--st'>
+      <div className='form'>
+        <h3 className='heading'>
+          Sở thích của bạn là gì ?
+        </h3>
+        <ul className='form-list'>
+          {soThich.map((item) => (
+            <li
+              key={item.id}
+              className={
+                item.id === soThichID
+                  ? 'form-item active'
+                  : 'form-item'
+              }
+              onClick={() =>
+                handleClick({
+                  id: item.id,
+                  value: item.value,
+                })
+              }
+            >
+              {item.name}
+            </li>
+          ))}
+        </ul>
+        <div>
+          <button className='btn' onClick={handleNext}>
+            Tiếp theo
+          </button>
+          <button
+            className='btn btn--back'
+            onClick={() => navigation.previous()}
           >
-            {item.name}
-          </li>
-        ))}
-      </ul>
-      <button onClick={() => navigation.previous()}>
-        Quay lại
-      </button>
-      <button onClick={() => navigation.next()}>
-        Tiếp theo
-      </button>
+            Quay lại
+          </button>
+        </div>
+      </div>
     </div>
   )
 }

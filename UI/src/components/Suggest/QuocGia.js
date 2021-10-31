@@ -15,22 +15,22 @@ function QuocGia({handleQG, navigation, handleSugest}) {
   const quocGia = [
     {
       id: 'Q1',
-      name: 'Hàn Quốc (KIA, HYUNDAI)',
+      name: 'Hàn Quốc',
       value: random(quocgia.hanquoc),
     },
     {
       id: 'Q2',
-      name: 'Nhật Bản (HONDA, TOYOTA)',
+      name: 'Nhật Bản',
       value: random(quocgia.nhat),
     },
     {
       id: 'Q3',
-      name: 'Việt Nam (VINFAST)',
+      name: 'Việt Nam',
       value: random(quocgia.vietnam),
     },
     {
       id: 'Q4',
-      name: 'Đức (MERCEDES, BMW)',
+      name: 'Đức',
       value: random(quocgia.duc),
     },
   ]
@@ -39,30 +39,50 @@ function QuocGia({handleQG, navigation, handleSugest}) {
     handleQG({id, value})
   }
   const handleReview = () => {
-    navigation.next()
-    handleSugest()
+    if (quocGiaID) {
+      navigation.next()
+      handleSugest()
+    } else alert('Vui lòng chọn 1 trong 4 quốc gia !')
   }
+
   return (
-    <div>
-      <ul>
-        {quocGia.map((item) => (
-          <li
-            key={item.id}
-            style={{
-              color: item.id === quocGiaID && 'brown',
-            }}
-            onClick={() =>
-              handleClick({id: item.id, value: item.value})
-            }
+    <div className='content content--qg'>
+      <div className='form'>
+        <h3 className='heading'>
+          Quốc gia sản xuất mà bạn quan tâm ?
+        </h3>
+        <ul className='form-list'>
+          {quocGia.map((item) => (
+            <li
+              key={item.id}
+              className={
+                item.id === quocGiaID
+                  ? 'form-item active'
+                  : 'form-item'
+              }
+              onClick={() =>
+                handleClick({
+                  id: item.id,
+                  value: item.value,
+                })
+              }
+            >
+              {item.name}
+            </li>
+          ))}
+        </ul>
+        <div>
+          <button className='btn' onClick={handleReview}>
+            Xem kết quả
+          </button>
+          <button
+            className='btn btn--back'
+            onClick={() => navigation.previous()}
           >
-            {item.name}
-          </li>
-        ))}
-      </ul>
-      <button onClick={() => navigation.previous()}>
-        Quay lại
-      </button>
-      <button onClick={handleReview}>Xem kết quả</button>
+            Quay lại
+          </button>
+        </div>
+      </div>
     </div>
   )
 }

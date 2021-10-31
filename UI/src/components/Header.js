@@ -2,10 +2,10 @@ import {Link} from 'react-router-dom'
 function Header() {
   return (
     <div className='header'>
-      <h3>SHOWROOM</h3>
+      <h3>Duy Quang</h3>
       <ul>
         <li>
-          <Link to='/'>Trang chủ</Link>
+          <Link to='/'>Showroom</Link>
         </li>
         <li>
           <Link to='/tuvan'>Tư vấn mua xe</Link>

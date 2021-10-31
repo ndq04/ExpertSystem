@@ -1,13 +1,16 @@
 .filter {
   padding-left: 20px;
   padding-right: 20px;
+  padding-top: 20px;
 }
 .filter-control {
   margin-bottom: 30px;
 }
 .filter-control p {
-  margin-bottom: 5px;
+  margin-bottom: 15px;
   margin-left: 5px;
+  color: #f1f1f1;
+  font-size: 18px;
 }
 .filter-control select {
   -webkit-appearance: button;
@@ -30,4 +33,5 @@
   cursor: pointer;
   flex: 1;
   width: 100%;
+  background-color: #f1f1f1;
 }

@@ -18,31 +18,48 @@ function GioiTinh({handleGT, navigation}) {
     setGioiTinhID(id)
     handleGT({id, value, name})
   }
+  const handleNext = () => {
+    if (gioiTinhID) {
+      navigation.next()
+    } else alert('Vui lòng chọn giới tính !')
+  }
   return (
-    <div>
-      <ul>
-        {gioiTinh.map((item) => (
-          <li
-            key={item.id}
-            style={{color: item.id === gioiTinhID && 'red'}}
-            onClick={() =>
-              handleClick({
-                id: item.id,
-                value: item.value,
-                name: item.name,
-              })
-            }
+    <div className='content content--gt'>
+      <div className='form'>
+        <h3 className='heading'>Giới tính của bạn ?</h3>
+        <ul className='form-list'>
+          {gioiTinh.map((item) => (
+            <li
+              key={item.id}
+              className={
+                item.id === gioiTinhID
+                  ? 'form-item active'
+                  : 'form-item'
+              }
+              onClick={() =>
+                handleClick({
+                  id: item.id,
+                  value: item.value,
+                  name: item.name,
+                })
+              }
+            >
+              {item.name}
+            </li>
+          ))}
+        </ul>
+        <div>
+          <button className='btn' onClick={handleNext}>
+            Tiếp theo
+          </button>
+          <button
+            className='btn btn--back'
+            onClick={() => navigation.previous()}
           >
-            {item.name}
-          </li>
-        ))}
-      </ul>
-      <button onClick={() => navigation.previous()}>
-        Quay lại
-      </button>
-      <button onClick={() => navigation.next()}>
-        Tiếp theo
-      </button>
+            Quay lại
+          </button>
+        </div>
+      </div>
     </div>
   )
 }

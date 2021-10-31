@@ -1,17 +1,27 @@
+import './Styles.css'
+
 function TrangChu({name, setName, navigation}) {
+  const handleNext = () => {
+    if (name) {
+      navigation.next()
+    } else alert('Vui lòng nhập tên của bạn !')
+  }
   return (
-    <div>
-      <label>
-        Xin mời nhập tên của bạn
-        <input
-          type='text'
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-      </label>
-      <button onClick={() => navigation.next()}>
-        Tiếp theo
-      </button>
+    <div className='content'>
+      <div className='form form-tc'>
+        <div className='form-head'>
+          <p>Chào mừng đến với trang tư vấn mua xe</p>
+          <input
+            type='text'
+            placeholder='Xin mời nhập tên của bạn'
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
+        <button className='btn' onClick={handleNext}>
+          Tiếp theo
+        </button>
+      </div>
     </div>
   )
 }
