@@ -7,7 +7,7 @@ function SoThich({handleST, navigation}) {
     return data[Math.floor(Math.random() * data.length)]
   }
   const sothich = {
-    thethao: ['T_M', 'T_Se', 'T_Su'],
+    thethao: ['T_M', 'T_Se'],
     dulich: ['T_M', 'T_Se', 'T_Su'],
     khampha: ['T_M', 'T_Se', 'T_Su'],
     congnghe: ['T_M', 'T_Se', 'T_Su'],

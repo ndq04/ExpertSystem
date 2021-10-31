@@ -53,8 +53,15 @@ function Filter() {
         </select>
       </div>
 
-      <button onClick={handleSearch}>Tìm kiếm</button>
-      <button onClick={handleALl}>Tất cả</button>
+      <button
+        className='btn btn--search'
+        onClick={handleSearch}
+      >
+        Tìm kiếm
+      </button>
+      <button className='btn btn--all' onClick={handleALl}>
+        Xem tất cả
+      </button>
     </div>
   )
 }

@@ -32,6 +32,9 @@ function KetQua({name, setName, navigation, ...values}) {
       <h3>
         {quocGiaID} {quocGiaValue}
       </h3>
+      <h3>
+        {typeof sugestCar === 'object' && sugestCar.id}
+      </h3>
       {typeof sugestCar === 'object' && (
         <div>
           <img src={sugestCar.image} alt={sugestCar.name} />

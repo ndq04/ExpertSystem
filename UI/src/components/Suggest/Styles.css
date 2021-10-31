@@ -42,19 +42,25 @@
   width: 100%;
   margin-top: 20px;
   border: 2px solid;
+  transition: all 0.3s ease;
 }
 .btn:hover {
   background: #4267b2;
 }
-.btn.btn--back {
+.btn.btn--back,
+.btn.btn--all {
   background: #e41448;
 }
-.btn.btn--back:hover {
+.btn.btn--back:hover,
+.btn.btn--all:hover {
   background: #c40434;
+}
+.btn.btn--search {
+  margin-top: 50px;
 }
 
 .form {
-  max-width: 500px;
+  max-width: 450px;
   width: 100%;
   height: 500px;
   display: flex;
@@ -119,11 +125,12 @@
   border-radius: 20px;
   color: #4267b2;
   border: 2px solid;
+  transition: all 0.4s ease;
 }
 .form-item.active,
 .form-item:hover {
   color: #fff;
-  background: #19e635;
+  background: #038014;
   border: 2px solid;
   font-size: 18px;
   font-weight: 600;

@@ -15,9 +15,10 @@ export const dataFilter = {
   ],
   price: [
     {val: 'P_1', lab: 'Từ 300 triệu đến 500 triệu'},
-    {val: 'P_2', lab: 'Từ 500 triệu đến 1 tỷ'},
-    {val: 'P_3', lab: 'Từ 1 tỷ đến 2 tỷ'},
-    {val: 'P_4', lab: 'Từ 2 tỷ đến 4 tỷ'},
-    {val: 'P_5', lab: 'Trên 4 tỷ'},
+    {val: 'P_2', lab: 'Từ 500 triệu đến 800 triệu'},
+    {val: 'P_3', lab: 'Từ 800 triệu đến 1,5 tỷ'},
+    {val: 'P_4', lab: 'Từ 1.5 tỷ đến 2,5 tỷ'},
+    {val: 'P_5', lab: 'Từ 2.5 tỷ đến 3,5 tỷ'},
+    {val: 'P_6', lab: 'Từ 3.5 tỷ đến trên 4 tỷ'},
   ],
 }

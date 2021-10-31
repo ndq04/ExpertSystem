@@ -2,7 +2,9 @@ import {Link} from 'react-router-dom'
 function Header() {
   return (
     <div className='header'>
-      <h3>Duy Quang</h3>
+      <h3>
+        <Link to='/'>Duy Quang</Link>
+      </h3>
       <ul>
         <li>
           <Link to='/'>Showroom</Link>

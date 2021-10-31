@@ -10,7 +10,7 @@ function TrangChu({name, setName, navigation}) {
     <div className='content'>
       <div className='form form-tc'>
         <div className='form-head'>
-          <p>Chào mừng đến với trang tư vấn mua xe</p>
+          <p>Chào mừng đến với trang tư vấn mua xe ô tô</p>
           <input
             type='text'
             placeholder='Xin mời nhập tên của bạn'

@@ -42,6 +42,10 @@ function Car({id, name, image, price, color}) {
             className='car-color'
             style={{color: getColorCss(color)}}
           >
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
             {getColor(color)}
           </span>
         </div>

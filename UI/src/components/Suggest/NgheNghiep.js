@@ -7,11 +7,11 @@ function NgheNghiep({handleNN, navigation}) {
     return data[Math.floor(Math.random() * data.length)]
   }
   const nghenghiep = {
-    congNhan: ['P_1', 'P_2', 'P_3'],
+    congNhan: ['P_1', 'P_2'],
     giaoVien: ['P_1', 'P_2', 'P_3'],
-    bacSi: ['P_2', 'P_3', 'P_4'],
+    bacSi: ['P_2', 'P_3'],
     nhanVienVP: ['P_2', 'P_3', 'P_4'],
-    doanhNhan: ['P_3', 'P_4', 'P_5'],
+    doanhNhan: ['P_4', 'P_5', 'P_6'],
   }
   const ngheNghiep = [
     {
