@@ -1,53 +1,60 @@
 import {useState} from 'react'
 
-function SoThich({handleST, navigation}) {
+function SoThich({handleST, navigation, handleSugest}) {
   const [soThichID, setSoThichID] = useState('')
 
   const random = (data) => {
     return data[Math.floor(Math.random() * data.length)]
   }
   const sothich = {
-    thethao: ['T_M', 'T_Se'],
-    dulich: ['T_M', 'T_Se', 'T_Su'],
-    khampha: ['T_M', 'T_Se', 'T_Su'],
-    congnghe: ['T_M', 'T_Se', 'T_Su'],
+    S1: {
+      T: ['T_M', 'T_Se', 'T_Su'],
+      P: ['P_1', 'P_2', 'P_3'],
+    },
+    S2: {
+      T: ['T_Se', 'T_Su'],
+      P: ['P_2', 'P_3', 'P_4'],
+    },
+    S3: {
+      T: ['T_Se', 'T_Su'],
+      P: ['P_2', 'P_3', 'P_4'],
+    },
   }
   const soThich = [
     {
       id: 'S1',
-      name: 'Thể thao',
-      value: random(sothich.thethao),
+      name: 'Du lịch',
+      type: random(sothich.S1.T),
+      price: random(sothich.S1.P),
     },
     {
       id: 'S2',
-      name: 'Du lịch',
-      value: random(sothich.dulich),
+      name: 'Thể thao',
+      type: random(sothich.S2.T),
+      price: random(sothich.S2.P),
     },
     {
       id: 'S3',
       name: 'Khám phá, phiêu lưu',
-      value: random(sothich.khampha),
-    },
-    {
-      id: 'S4',
-      name: 'Công nghệ',
-      value: random(sothich.congnghe),
+      type: random(sothich.S3.T),
+      price: random(sothich.S3.P),
     },
   ]
-  const handleClick = ({id, value}) => {
+  const handleClick = ({id, type, price}) => {
     setSoThichID(id)
-    handleST({id, value})
+    handleST({id, type, price})
   }
   const handleNext = () => {
     if (soThichID) {
       navigation.next()
-    } else alert('Vui lòng chọn sở thích của bạn !')
+      handleSugest()
+    } else alert('Vui lòng chọn dòng xe mà bạn quan tâm !')
   }
   return (
     <div className='content content--st'>
       <div className='form'>
         <h3 className='heading'>
-          Sở thích của bạn là gì ?
+          Dòng xe mà bạn đang quan tâm ?
         </h3>
         <ul className='form-list'>
           {soThich.map((item) => (
@@ -61,7 +68,8 @@ function SoThich({handleST, navigation}) {
               onClick={() =>
                 handleClick({
                   id: item.id,
-                  value: item.value,
+                  type: item.type,
+                  price: item.price,
                 })
               }
             >
@@ -71,7 +79,7 @@ function SoThich({handleST, navigation}) {
         </ul>
         <div>
           <button className='btn' onClick={handleNext}>
-            Tiếp theo
+            Xem kết quả
           </button>
           <button
             className='btn btn--back'

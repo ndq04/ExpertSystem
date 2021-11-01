@@ -7,16 +7,32 @@ function GioiTinh({handleGT, navigation}) {
     return data[Math.floor(Math.random() * data.length)]
   }
   const gioitinh = {
-    nam: ['C_T', 'C_De', 'C_Do'],
-    nu: ['C_T', 'C_Do'],
+    nam: {
+      C: ['C_T', 'C_De', 'C_Do'],
+      T: ['T_Se', 'T_Su'],
+    },
+    nu: {
+      C: ['C_T', 'C_De', 'C_Do'],
+      T: ['T_M', 'T_Se'],
+    },
   }
   const gioiTinh = [
-    {id: 'G1', name: 'Nam', value: random(gioitinh.nam)},
-    {id: 'G2', name: 'Nữ', value: random(gioitinh.nu)},
+    {
+      id: 'G1',
+      name: 'Nam',
+      color: random(gioitinh.nam.C),
+      type: random(gioitinh.nam.T),
+    },
+    {
+      id: 'G2',
+      name: 'Nữ',
+      color: random(gioitinh.nu.C),
+      type: random(gioitinh.nu.T),
+    },
   ]
-  const handleClick = ({id, value, name}) => {
+  const handleClick = ({id, color, type, name}) => {
     setGioiTinhID(id)
-    handleGT({id, value, name})
+    handleGT({id, color, type, name})
   }
   const handleNext = () => {
     if (gioiTinhID) {
@@ -39,7 +55,8 @@ function GioiTinh({handleGT, navigation}) {
               onClick={() =>
                 handleClick({
                   id: item.id,
-                  value: item.value,
+                  color: item.color,
+                  type: item.type,
                   name: item.name,
                 })
               }

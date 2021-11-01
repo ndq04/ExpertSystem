@@ -2,41 +2,36 @@ import {useState} from 'react'
 import {useStep} from 'react-hooks-helper'
 import GioiTinh from './Suggest/GioiTinh'
 import NgheNghiep from './Suggest/NgheNghiep'
-import QuocGia from './Suggest/QuocGia'
 import SoThich from './Suggest/SoThich'
 import TrangChu from './Suggest/TrangChu'
 import KetQua from './Suggest/KetQua'
 import Error from './Error'
 
 function Suggest() {
-  const [gioiTinh, setGioiTinh] = useState('')
   const [gioiTinhID, setGioiTinhID] = useState('')
-  const [gioiTinhValue, setGioiTinhValue] = useState('')
+  const [gioiTinh_C, setGioiTinh_C] = useState('')
+  const [gioiTinh_T, setGioiTinh_T] = useState('')
+  const [soThichID, setSoThichID] = useState('')
+  const [soThich_T, setSoThich_T] = useState('')
+  const [soThich_P, setSoThich_P] = useState('')
   const [ngheNghiepID, setNgheNghiepID] = useState('')
   const [ngheNghiepValue, setNgheNghiepValue] = useState('')
-  const [soThichID, setSoThichID] = useState('')
-  const [soThichValue, setSoThichValue] = useState('')
-  const [quocGiaID, setQuocGiaID] = useState('')
-  const [quocGiaValue, setQuocGiaValue] = useState('')
 
-  const [sugestCar, setSugestCar] = useState()
+  const [sugestCars, setSugestCars] = useState([])
 
-  const handleGT = ({id, value, name}) => {
-    setGioiTinh(name)
+  const handleGT = ({id, color, type, name}) => {
     setGioiTinhID(id)
-    setGioiTinhValue(value)
+    setGioiTinh_C(color)
+    setGioiTinh_T(type)
   }
   const handleNN = ({id, value}) => {
     setNgheNghiepID(id)
     setNgheNghiepValue(value)
   }
-  const handleST = ({id, value}) => {
+  const handleST = ({id, type, price}) => {
     setSoThichID(id)
-    setSoThichValue(value)
-  }
-  const handleQG = ({id, value}) => {
-    setQuocGiaID(id)
-    setQuocGiaValue(value)
+    setSoThich_T(type)
+    setSoThich_P(price)
   }
   const handleSugest = () => {
     fetch('http://127.0.0.1:2000/api/tuvan', {
@@ -45,15 +40,16 @@ function Suggest() {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        gioitinh: gioiTinhValue,
+        gioitinh_color: gioiTinh_C,
+        gioitinh_type: gioiTinh_T,
+        sothich_type: soThich_T,
+        sothich_price: soThich_P,
         nghenghiep: ngheNghiepValue,
-        sothich: soThichValue,
-        quocgia: quocGiaValue,
       }),
     })
       .then((res) => res.json())
-      // .then((data) => console.log(data.car))
-      .then((data) => setSugestCar(data.car))
+      // .then((data) => console.log(data.cars))
+      .then((data) => setSugestCars(data.cars))
       .catch((err) => console.log(err))
   }
   const steps = [
@@ -61,28 +57,26 @@ function Suggest() {
     {id: 'gt'},
     {id: 'nn'},
     {id: 'st'},
-    {id: 'qg'},
     {id: 'kq'},
   ]
 
   const [name, setName] = useState('')
   const {step, navigation} = useStep({
     steps,
-    initialStep: 0,
+    initialStep: 1,
   })
 
   const props = {name, setName, navigation}
   const values = {
-    gioiTinh,
     gioiTinhID,
-    gioiTinhValue,
+    gioiTinh_C,
+    gioiTinh_T,
+    soThichID,
+    soThich_T,
+    soThich_P,
     ngheNghiepID,
     ngheNghiepValue,
-    soThichID,
-    soThichValue,
-    quocGiaID,
-    quocGiaValue,
-    sugestCar,
+    sugestCars,
   }
 
   switch (step.id) {
@@ -93,11 +87,9 @@ function Suggest() {
     case 'nn':
       return <NgheNghiep handleNN={handleNN} {...props} />
     case 'st':
-      return <SoThich handleST={handleST} {...props} />
-    case 'qg':
       return (
-        <QuocGia
-          handleQG={handleQG}
+        <SoThich
+          handleST={handleST}
           {...props}
           handleSugest={handleSugest}
         />

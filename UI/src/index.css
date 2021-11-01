@@ -57,19 +57,7 @@ img {
   font-size: 2rem;
   color: #f1f1f1;
   font-weight: 500;
-  text-shadow: 5px 5px 5px #fff;
-}
-.header h3 {
-  animation: rotate 5s linear infinite;
-}
-@keyframes rotate {
-  50% {
-    transform: rotateY(180deg);
-  }
-  100% {
-    transform: rotateY(360deg);
-    opacity: 1;
-  }
+  text-shadow: 3px 3px 5px #fff;
 }
 .header ul {
   display: flex;
@@ -93,10 +81,6 @@ img {
   height: 2px;
   background-color: #fff;
 }
-/* .header ul li a:hover {
-  border-bottom: 2px solid;
-  text-shadow: 0 2px 3px #fff;
-} */
 .header ul li a:hover::before {
   width: 100%;
 }

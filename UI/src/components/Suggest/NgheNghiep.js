@@ -11,7 +11,7 @@ function NgheNghiep({handleNN, navigation}) {
     giaoVien: ['P_1', 'P_2', 'P_3'],
     bacSi: ['P_2', 'P_3'],
     nhanVienVP: ['P_2', 'P_3', 'P_4'],
-    doanhNhan: ['P_4', 'P_5', 'P_6'],
+    doanhNhan: ['P_3', 'P_4', 'P_5', 'P_6'],
   }
   const ngheNghiep = [
     {
