@@ -63,19 +63,20 @@ def tuvan():
   try:
     cursor=mysql.connection.cursor()
     user_input = {
-    "gioitinh": request.json["gioitinh"],
+    "gioitinh_color": request.json["gioitinh_color"],
+    "gioitinh_type": request.json["gioitinh_type"],
+    "sothich_type":request.json["sothich_type"],
+    "sothich_price":request.json["sothich_price"],
     "nghenghiep": request.json["nghenghiep"],
-    "sothich":request.json["sothich"],
-    "quocgia":request.json["quocgia"],
   }
-    sql_str="SELECT * FROM oto WHERE id_Color= '"+user_input["gioitinh"]+"' and id_Price = '"+user_input["nghenghiep"]+"' and id_Type = '"+user_input["sothich"]+"' and id_Company = '"+user_input["quocgia"]+"'  "
+    sql_str="SELECT * FROM oto WHERE (id_Color= '"+user_input["gioitinh_color"]+"' or id_Type= '"+user_input["gioitinh_type"]+"') and (id_Type = '"+user_input["sothich_type"]+"' or id_Price = '"+user_input["sothich_price"]+"') and id_Price = '"+user_input["nghenghiep"]+"'  "
     cursor.execute(sql_str)
-    data=cursor.fetchone()
-    if data != None:
-      car={'id':data[0],'name':data[1],'image':data[2], 'price':data[3],'color':data[4]}
-    else :
-      return jsonify({'car':'Not found!'})
-    return jsonify({'car':car})
+    data=cursor.fetchall()
+    cars=[]
+    for item in data:
+      car={'id':item[0],'name':item[1],'image':item[2], 'price':item[3],'color':item[4],'type':item[5]}
+      cars.append(car)
+    return jsonify({'cars':cars})
   except Exception as ex:
     return jsonify({'car':'Error!'})
 
