@@ -13,36 +13,42 @@ function NgheNghiep({handleNN, navigation}) {
     nhanVienVP: ['P_2', 'P_3', 'P_4'],
     doanhNhan: ['P_3', 'P_4', 'P_5', 'P_6'],
   }
+
   const ngheNghiep = [
     {
       id: 'N1',
       name: 'Công nhân',
       value: random(nghenghiep.congNhan),
+      desc: '+ Giá tiền phù hợp nên lựa chọn: ',
     },
     {
       id: 'N2',
       name: 'Giáo viên',
       value: random(nghenghiep.giaoVien),
+      desc: '+ Giá tiền phù hợp nên lựa chọn: ',
     },
     {
       id: 'N3',
       name: 'Bác sĩ',
       value: random(nghenghiep.bacSi),
+      desc: '+ Giá tiền phù hợp nên lựa chọn: ',
     },
     {
       id: 'N4',
       name: 'Nhân viên văn phòng',
       value: random(nghenghiep.nhanVienVP),
+      desc: '+ Giá tiền phù hợp nên lựa chọn: ',
     },
     {
       id: 'N5',
       name: 'Doanh nhân',
       value: random(nghenghiep.doanhNhan),
+      desc: '+ Giá tiền phù hợp nên lựa chọn: ',
     },
   ]
-  const handleClick = ({id, value}) => {
+  const handleClick = ({id, value, desc}) => {
     setNgheNghiepID(id)
-    handleNN({id, value})
+    handleNN({id, value, desc})
   }
   const handleNext = () => {
     if (ngheNghiepID) {
@@ -68,6 +74,7 @@ function NgheNghiep({handleNN, navigation}) {
                 handleClick({
                   id: item.id,
                   value: item.value,
+                  desc: item.desc,
                 })
               }
             >

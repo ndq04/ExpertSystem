@@ -8,8 +8,11 @@
 .result-info {
   width: 70%;
   margin-right: 20px;
+  padding: 20px;
   border-radius: 15px;
   background: #fff;
+  display: flex;
+  flex-direction: column;
 }
 .result-view {
   width: 30%;
@@ -42,11 +45,59 @@
   margin-bottom: 15px;
 }
 .result-info h2 {
-  text-align: center;
-  margin-top: 10px;
-  font-weight: 500;
+  font-weight: 400;
+  color: #333;
+  padding-left: 20px;
 }
 .result-info h2 span {
   font-size: 2rem;
   color: #4267b2;
+}
+.result-info h3 {
+  text-align: center;
+  margin: 10px 0 20px;
+  color: #f6c31c;
+}
+.info {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+.info-item {
+  display: flex;
+  align-items: center;
+  margin: 15px;
+}
+.info-item h4 {
+  flex-shrink: 0;
+  margin-right: 20px;
+  width: 20%;
+  color: #f6c31c;
+}
+.info-item p,
+.info-item h4 {
+  font-weight: 600;
+  background: #fff;
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+.info-item p {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.info-item p span:first-child {
+  margin-right: 10px;
+}
+.male {
+  color: #1877f2;
+}
+.female {
+  color: #e41448;
+}
+.detail {
+  height: 40%;
+  margin-top: 20px;
+  background: #f1f1f1;
+  padding: 20px;
+  border-radius: 10px;
 }

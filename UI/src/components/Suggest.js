@@ -11,27 +11,35 @@ function Suggest() {
   const [gioiTinhID, setGioiTinhID] = useState('')
   const [gioiTinh_C, setGioiTinh_C] = useState('')
   const [gioiTinh_T, setGioiTinh_T] = useState('')
+  const [gioiTinhDesc, setGioiTinhDesc] = useState('')
+
   const [soThichID, setSoThichID] = useState('')
   const [soThich_T, setSoThich_T] = useState('')
   const [soThich_P, setSoThich_P] = useState('')
+  const [soThichDesc, setSoThichDesc] = useState('')
+
   const [ngheNghiepID, setNgheNghiepID] = useState('')
   const [ngheNghiepValue, setNgheNghiepValue] = useState('')
+  const [ngheNghiepDesc, setNgheNghiepDesc] = useState('')
 
   const [sugestCars, setSugestCars] = useState([])
 
-  const handleGT = ({id, color, type, name}) => {
+  const handleGT = ({id, color, type, desc}) => {
     setGioiTinhID(id)
     setGioiTinh_C(color)
     setGioiTinh_T(type)
+    setGioiTinhDesc(desc)
   }
-  const handleNN = ({id, value}) => {
+  const handleNN = ({id, value, desc}) => {
     setNgheNghiepID(id)
     setNgheNghiepValue(value)
+    setNgheNghiepDesc(desc)
   }
-  const handleST = ({id, type, price}) => {
+  const handleST = ({id, type, price, desc}) => {
     setSoThichID(id)
     setSoThich_T(type)
     setSoThich_P(price)
+    setSoThichDesc(desc)
   }
   const handleSugest = () => {
     fetch('http://127.0.0.1:2000/api/tuvan', {
@@ -63,7 +71,7 @@ function Suggest() {
   const [name, setName] = useState('')
   const {step, navigation} = useStep({
     steps,
-    initialStep: 1,
+    initialStep: 0,
   })
 
   const props = {name, setName, navigation}
@@ -71,11 +79,14 @@ function Suggest() {
     gioiTinhID,
     gioiTinh_C,
     gioiTinh_T,
+    gioiTinhDesc,
     soThichID,
     soThich_T,
     soThich_P,
+    soThichDesc,
     ngheNghiepID,
     ngheNghiepValue,
+    ngheNghiepDesc,
     sugestCars,
   }
 

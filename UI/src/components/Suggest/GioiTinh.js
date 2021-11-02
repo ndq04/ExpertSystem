@@ -22,17 +22,25 @@ function GioiTinh({handleGT, navigation}) {
       name: 'Nam',
       color: random(gioitinh.nam.C),
       type: random(gioitinh.nam.T),
+      desc: {
+        desc1: '+ Màu sắc phù hợp : Đen , Trắng, Đỏ ',
+        desc2: '+ Dòng xe có thể tham khảo: ',
+      },
     },
     {
       id: 'G2',
       name: 'Nữ',
       color: random(gioitinh.nu.C),
       type: random(gioitinh.nu.T),
+      desc: {
+        desc1: '+ Màu sắc phù hợp : Đen , Trắng, Đỏ ',
+        desc2: '+ Dòng xe có thể tham khảo: ',
+      },
     },
   ]
-  const handleClick = ({id, color, type, name}) => {
+  const handleClick = ({id, name, color, type, desc}) => {
     setGioiTinhID(id)
-    handleGT({id, color, type, name})
+    handleGT({id, name, color, type, desc})
   }
   const handleNext = () => {
     if (gioiTinhID) {
@@ -55,9 +63,10 @@ function GioiTinh({handleGT, navigation}) {
               onClick={() =>
                 handleClick({
                   id: item.id,
+                  name: item.name,
                   color: item.color,
                   type: item.type,
-                  name: item.name,
+                  desc: item.desc,
                 })
               }
             >

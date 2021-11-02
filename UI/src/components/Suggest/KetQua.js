@@ -1,15 +1,19 @@
 import './Result.css'
-
+import {BsGenderMale, BsGenderFemale} from 'react-icons/bs'
+import {MdOutlineWork} from 'react-icons/md'
+import {BiBody} from 'react-icons/bi'
 function KetQua({name, setName, navigation, ...values}) {
   const {
     gioiTinhID,
-    gioiTinh_C,
     gioiTinh_T,
+    gioiTinhDesc,
     soThichID,
     soThich_T,
     soThich_P,
+    soThichDesc,
     ngheNghiepID,
     ngheNghiepValue,
+    ngheNghiepDesc,
     sugestCars,
   } = values
   const handleBackHome = () => {
@@ -85,41 +89,119 @@ function KetQua({name, setName, navigation, ...values}) {
   const getPrice = (value) => {
     switch (value) {
       case 'P_1':
-        return 'Từ 300 triệu đến 500 triệu'
+        return 'từ 300 triệu đến 500 triệu'
       case 'P_2':
-        return 'Từ 500 triệu đến 800 triệu'
+        return 'từ 500 triệu đến 800 triệu'
       case 'P_3':
-        return 'Từ 800 triệu đến 1,5 tỷ'
+        return 'từ 800 triệu đến 1,5 tỷ'
       case 'P_4':
-        return 'Từ 1,5 tỷ đến 2,5 tỷ'
+        return 'từ 1,5 tỷ đến 2,5 tỷ'
       case 'P_5':
-        return 'Từ 2,5 tỷ đến 3,5 tỷ'
+        return 'từ 2,5 tỷ đến 3,5 tỷ'
       default:
-        return 'Từ 3,5 tỷ đến trên 4 tỷ'
+        return 'từ 3,5 tỷ đến trên 4 tỷ'
     }
   }
   return (
     <div className='result'>
       <div className='result-info'>
-        <h2>
-          Xin chào <span>{name}</span>
-        </h2>
-        <h3>
-          Số lượng sản phẩm phù hợp {sugestCars.length}
-        </h3>
-        <h3>Thông tin </h3>
-        <h3>
-          {getGT(gioiTinhID)} {getColor(gioiTinh_C)}{' '}
-          {getType(gioiTinh_T)}
-        </h3>
-        <h3>
-          {getST(soThichID)} {getType(soThich_T)}{' '}
-          {getPrice(soThich_P)}
-        </h3>
-        <h3>
-          {getNN(ngheNghiepID)} {getPrice(ngheNghiepValue)}
-        </h3>
-        <button onClick={handleBackHome}>Trở lại</button>
+        <div className='info'>
+          <h2>
+            Xin chào <span>{name}</span>
+          </h2>
+          <h3>Thông tin của bạn </h3>
+          <div className='info-body'>
+            <div className='info-item'>
+              <h4>Giới Tính </h4>
+              <p>
+                <span>
+                  {gioiTinhID === 'G1' ? (
+                    <BsGenderMale size='1.1rem' />
+                  ) : (
+                    <BsGenderFemale size='1.1rem' />
+                  )}
+                </span>
+                <span
+                  className={
+                    gioiTinhID === 'G1' ? 'male' : 'female'
+                  }
+                >
+                  {getGT(gioiTinhID)}
+                </span>
+              </p>
+            </div>
+            <div className='info-item'>
+              <h4>Sở Thích</h4>
+              <p>
+                <span>
+                  <BiBody size='1.3rem' />
+                </span>
+                <span
+                  className={
+                    gioiTinhID === 'G1' ? 'male' : 'female'
+                  }
+                >
+                  {getST(soThichID)}
+                </span>
+              </p>
+            </div>
+            <div className='info-item'>
+              <h4>Nghề Nghiệp </h4>
+              <p>
+                <span>
+                  <MdOutlineWork size='1.1rem' />
+                </span>
+                <span
+                  className={
+                    gioiTinhID === 'G1' ? 'male' : 'female'
+                  }
+                >
+                  {getNN(ngheNghiepID)}
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className='detail'>
+          <div>
+            <p>
+              - Giới Tính : <span>{getGT(gioiTinhID)}</span>
+            </p>
+            <p>{gioiTinhDesc.desc1}</p>
+            <p>
+              {gioiTinhDesc.desc2} {getType(gioiTinh_T)}
+            </p>
+          </div>
+          <br />
+          <div>
+            <p>
+              - Sở Thích : <span>{getST(soThichID)}</span>
+            </p>
+            <p>
+              {soThichDesc.desc1} {getType(soThich_T)}
+            </p>
+            <p>
+              {soThichDesc.desc2} {getPrice(soThich_P)}
+            </p>
+          </div>
+          <br />
+          <div>
+            <p>
+              - Nghề Nghiệp :{' '}
+              <span>{getNN(ngheNghiepID)}</span>
+            </p>
+            <p>
+              {ngheNghiepDesc}
+              {getPrice(ngheNghiepValue)}
+            </p>
+          </div>
+        </div>
+        <button
+          className='btn btn--back'
+          onClick={handleBackHome}
+        >
+          Trở lại
+        </button>
       </div>
       <div className='result-view'>
         {sugestCars.length > 0 ? (
