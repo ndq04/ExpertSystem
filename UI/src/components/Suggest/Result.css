@@ -20,6 +20,7 @@
   overflow: scroll;
   border-radius: 15px;
   background: #fff;
+  position: relative;
 }
 .result-view ul li {
   background: #fff;
@@ -100,4 +101,17 @@
   background: #f1f1f1;
   padding: 20px;
   border-radius: 10px;
+}
+.title-nf {
+  color: #e41448;
+  position: absolute;
+  top: 60%;
+  left: 5%;
+  font-size: 2rem;
+  font-weight: 400;
+}
+.result-view--empty {
+  background-image: url(https://cdn.dribbble.com/users/1361993/screenshots/16779600/media/315c88ab983c6a17e238f175cce25b0a.png);
+  background-position: center;
+  background-size: cover;
 }

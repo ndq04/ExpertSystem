@@ -203,8 +203,8 @@ function KetQua({name, setName, navigation, ...values}) {
           Trở lại
         </button>
       </div>
-      <div className='result-view'>
-        {sugestCars.length > 0 ? (
+      {sugestCars.length > 0 ? (
+        <div className='result-view'>
           <ul>
             {sugestCars.map((car) => (
               <li key={car.id}>
@@ -227,15 +227,15 @@ function KetQua({name, setName, navigation, ...values}) {
               </li>
             ))}
           </ul>
-        ) : (
-          <div>
-            <h3>
-              Rất tiếc! Không có sản phẩm phù hợp trong cửa
-              hàng
-            </h3>
-          </div>
-        )}
-      </div>
+        </div>
+      ) : (
+        <div className='result-view result-view--empty'>
+          <h3 className='title-nf'>
+            Rất tiếc! Không có sản phẩm phù hợp trong cửa
+            hàng
+          </h3>
+        </div>
+      )}
     </div>
   )
 }
