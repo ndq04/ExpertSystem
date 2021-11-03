@@ -1,10 +1,9 @@
 import {useContext} from 'react'
-import {useHistory} from 'react-router-dom'
-import {CarContext} from '../contexts/CarContext'
+import {CarContext} from '../../contexts/CarContext'
 
-function Detail() {
+function ChiTiet({navigation}) {
   const {car} = useContext(CarContext)
-  const history = useHistory()
+
   const getColor = (color) => {
     switch (color) {
       case 'C_T':
@@ -43,7 +42,7 @@ function Detail() {
     <div className='car-detail'>
       <div className='car-detail-container'>
         <button
-          onClick={() => history.goBack()}
+          onClick={() => navigation.previous()}
           className='btn btn--back'
           style={{marginBottom: '20px'}}
         >
@@ -80,4 +79,4 @@ function Detail() {
   )
 }
 
-export default Detail
+export default ChiTiet

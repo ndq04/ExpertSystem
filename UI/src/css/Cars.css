@@ -95,3 +95,31 @@
     #ffcccc 100%
   );
 }
+.car-detail {
+  /* height: 90vh; */
+  margin: 0 auto;
+  background: linear-gradient(
+    to right,
+    #ccffcc 0%,
+    #ffcccc 100%
+  );
+}
+.car-detail-container {
+  max-width: 1200px;
+  margin: auto;
+  height: 100%;
+}
+.car-detail .car-img {
+  height: 100%;
+  border-radius: 10px;
+}
+.car-detail .car:hover .car-img img {
+  transform: none;
+}
+.car-container .desc {
+  background: linear-gradient(
+    to right,
+    #ccffcc 0%,
+    #ffcccc 100%
+  );
+}

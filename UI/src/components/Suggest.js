@@ -6,6 +6,7 @@ import SoThich from './Suggest/SoThich'
 import TrangChu from './Suggest/TrangChu'
 import KetQua from './Suggest/KetQua'
 import Error from './Error'
+import ChiTiet from './Suggest/ChiTiet'
 
 function Suggest() {
   const [gioiTinhID, setGioiTinhID] = useState('')
@@ -66,6 +67,7 @@ function Suggest() {
     {id: 'nn'},
     {id: 'st'},
     {id: 'kq'},
+    {id: 'ct'},
   ]
 
   const [name, setName] = useState('')
@@ -107,6 +109,8 @@ function Suggest() {
       )
     case 'kq':
       return <KetQua {...values} {...props} />
+    case 'ct':
+      return <ChiTiet {...props} />
     default:
       return <Error />
   }

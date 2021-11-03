@@ -2,7 +2,11 @@ import './Result.css'
 import {BsGenderMale, BsGenderFemale} from 'react-icons/bs'
 import {MdOutlineWork} from 'react-icons/md'
 import {BiBody} from 'react-icons/bi'
+import {useContext} from 'react'
+import {CarContext} from '../../contexts/CarContext'
+
 function KetQua({name, setName, navigation, ...values}) {
+  const {handleDetail} = useContext(CarContext)
   const {
     gioiTinhID,
     gioiTinh_T,
@@ -19,6 +23,10 @@ function KetQua({name, setName, navigation, ...values}) {
   const handleBackHome = () => {
     setName('')
     navigation.go(0)
+  }
+  const handleClick = (id) => {
+    navigation.next()
+    handleDetail(id)
   }
   const getColor = (color) => {
     switch (color) {
@@ -200,14 +208,18 @@ function KetQua({name, setName, navigation, ...values}) {
           className='btn btn--back'
           onClick={handleBackHome}
         >
-          Trở lại
+          Về trang đầu
         </button>
       </div>
       {sugestCars.length > 0 ? (
         <div className='result-view'>
           <ul>
             {sugestCars.map((car) => (
-              <li key={car.id}>
+              <li
+                key={car.id}
+                onClick={() => handleClick(car.id)}
+                style={{cursor: 'pointer'}}
+              >
                 <img src={car.image} alt={car.name} />
                 <h3>{car.name}</h3>
                 <p>
@@ -216,7 +228,9 @@ function KetQua({name, setName, navigation, ...values}) {
                 <div>
                   <span
                     className='car-color'
-                    style={{color: getColorCss(car.color)}}
+                    style={{
+                      color: getColorCss(car.color),
+                    }}
                   >
                     {getColor(car.color)}
                   </span>
