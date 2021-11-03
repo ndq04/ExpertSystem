@@ -25,33 +25,50 @@ def home():
 def showroom():
   try:
     cursor=mysql.connection.cursor()
-    sql_str="SELECT id_Oto, name, image, price, id_Color FROM oto"
+    sql_str="SELECT id_Oto, name, image, price, id_Color, id_Type FROM oto"
     cursor.execute(sql_str)
     data=cursor.fetchall()
     cars=[]
     for item in data:
-      car={'id':item[0],'name':item[1],'image':item[2], 'price':item[3], 'color':item[4]}
+      car={'id':item[0],'name':item[1],'image':item[2], 'price':item[3], 'color':item[4],'type':item[5]}
       cars.append(car)
     return jsonify({'cars':cars})
   except Exception as ex:
     return jsonify({'message':'Error!'})
 
-@app.route('/api/search', methods = ['POST'])
+@app.route('/api/search-type', methods = ['POST'])
 @cross_origin()
-def search():
+def searchType():
   try:
     cursor=mysql.connection.cursor()
     user_input = {
-    "company": request.json["company"],
     "type":request.json["type"],
-    "price":request.json["price"],
   }
-    sql_str="SELECT * FROM oto WHERE id_Company = '"+user_input["company"]+"' and id_Type = '"+user_input["type"]+"' and id_Price = '"+user_input["price"]+"' "
+    sql_str="SELECT * FROM oto  WHERE id_Type = '"+user_input["type"]+"' "
     cursor.execute(sql_str)
     data=cursor.fetchall()
     cars=[]
     for item in data:
-      car={'id':item[0],'name':item[1],'image':item[2], 'price':item[3],'color':item[4]}
+      car={'id':item[0],'name':item[1],'image':item[2], 'price':item[3],'color':item[4],'type':item[5]}
+      cars.append(car)
+    return jsonify({'cars':cars})
+  except Exception as ex:
+    return jsonify({'message':'Error!'})
+
+@app.route('/api/search-price', methods = ['POST'])
+@cross_origin()
+def searchPrice():
+  try:
+    cursor=mysql.connection.cursor()
+    user_input = {
+    "price":request.json["price"],
+  }
+    sql_str="SELECT * FROM oto WHERE id_Price = '"+user_input["price"]+"' "
+    cursor.execute(sql_str)
+    data=cursor.fetchall()
+    cars=[]
+    for item in data:
+      car={'id':item[0],'name':item[1],'image':item[2], 'price':item[3],'color':item[4],'type':item[5]}
       cars.append(car)
     return jsonify({'cars':cars})
   except Exception as ex:
@@ -85,11 +102,11 @@ def tuvan():
 def getOne(id):
   try:
     cursor=mysql.connection.cursor()
-    sql_str="SELECT name, image, price, id_Color FROM oto WHERE id_Oto = '{0}'".format(id)
+    sql_str="SELECT name, image, price, id_Color, id_Type FROM oto WHERE id_Oto = '{0}'".format(id)
     cursor.execute(sql_str)
     data=cursor.fetchone()
     if data != None:
-      car={'name':data[0],'image':data[1], 'price':data[2], 'color':data[3]}
+      car={'name':data[0],'image':data[1], 'price':data[2], 'color':data[3],'type':data[4]},
       return jsonify({'car':car})
     else:
       return jsonify({'message':'Not found!'})
