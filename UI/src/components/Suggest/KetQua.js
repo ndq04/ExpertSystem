@@ -220,7 +220,9 @@ function KetQua({name, setName, navigation, ...values}) {
                   >
                     {getColor(car.color)}
                   </span>
-                  <span>{getType(car.type)}</span>
+                  <span style={{marginLeft: '10px'}}>
+                    {getType(car.type)}
+                  </span>
                 </div>
               </li>
             ))}

@@ -2,7 +2,7 @@ import {Link} from 'react-router-dom'
 import {useContext} from 'react'
 import {CarContext} from '../contexts/CarContext'
 
-function Car({id, name, image, price, color}) {
+function Car({id, name, image, price, color, type}) {
   const {handleDetail} = useContext(CarContext)
 
   const getColor = (color) => {
@@ -29,6 +29,16 @@ function Car({id, name, image, price, color}) {
         return '#e41414'
     }
   }
+  const getType = (value) => {
+    switch (value) {
+      case 'T_M':
+        return 'Mini/Hatchback'
+      case 'T_Se':
+        return 'Sedan'
+      default:
+        return 'SUV'
+    }
+  }
   return (
     <li onClick={() => handleDetail(id)} className='car'>
       <Link to='/chitiet' className='car-container'>
@@ -43,6 +53,9 @@ function Car({id, name, image, price, color}) {
             style={{color: getColorCss(color)}}
           >
             {getColor(color)}
+          </span>
+          <span style={{marginTop: '10px'}}>
+            {getType(type)}
           </span>
         </div>
       </Link>

@@ -4,7 +4,6 @@ import {CarContext} from '../contexts/CarContext'
 
 function Detail() {
   const {car} = useContext(CarContext)
-  const {name, image, color, price} = car
   const history = useHistory()
   const getColor = (color) => {
     switch (color) {
@@ -33,15 +32,29 @@ function Detail() {
   return (
     <div>
       <button onClick={() => history.goBack()}>Back</button>
-      <img src={image} alt={name} />
-      <p>{name}</p>
-      <p>{price} VND</p>
-      <span
-        className='car-color'
-        style={{color: getColorCss(color)}}
-      >
-        {getColor(color)}
-      </span>
+      <ul>
+        {car.map((item, i) => (
+          <li key={i} className='car'>
+            <div className='car-container'>
+              <div className='car-img'>
+                <img src={item.image} alt={item.name} />
+              </div>
+              <div className='desc'>
+                <h3>{item.name}</h3>
+                <p>
+                  {item.price.toLocaleString('vi-VN')} VND
+                </p>
+                <span
+                  className='car-color'
+                  style={{color: getColorCss(item.color)}}
+                >
+                  {getColor(item.color)}
+                </span>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }

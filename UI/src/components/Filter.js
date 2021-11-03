@@ -2,6 +2,7 @@ import {useContext} from 'react'
 import {CarContext} from '../contexts/CarContext'
 import {dataFilter} from './../data'
 import '../css/Filter.css'
+import {BsSearch} from 'react-icons/bs'
 
 function Filter() {
   const {state, handleChange, handleSearch, handleALl} =
@@ -9,56 +10,51 @@ function Filter() {
   return (
     <div className='filter'>
       <div className='filter-control'>
-        <p>Hãng sản xuất</p>
-        <select
-          name='company'
-          value={state.company}
-          onChange={handleChange}
-        >
-          {dataFilter.company.map((op, i) => (
-            <option key={i} value={op.val}>
-              {op.lab}
-            </option>
-          ))}
-        </select>
-      </div>
-
-      <div className='filter-control'>
         <p>Dòng xe</p>
-        <select
-          name='type'
-          value={state.type}
-          onChange={handleChange}
-        >
-          {dataFilter.type.map((op, i) => (
-            <option key={i} value={op.val}>
-              {op.lab}
-            </option>
-          ))}
-        </select>
+        <div className='filter-item'>
+          <select
+            name='type'
+            value={state.type}
+            onChange={handleChange}
+          >
+            {dataFilter.type.map((op, i) => (
+              <option key={i} value={op.val}>
+                {op.lab}
+              </option>
+            ))}
+          </select>
+          <button
+            className='btn'
+            onClick={() => handleSearch('type')}
+          >
+            <BsSearch />
+          </button>
+        </div>
       </div>
 
       <div className='filter-control'>
         <p>Giá xe</p>
-        <select
-          name='price'
-          value={state.price}
-          onChange={handleChange}
-        >
-          {dataFilter.price.map((op, i) => (
-            <option key={i} value={op.val}>
-              {op.lab}
-            </option>
-          ))}
-        </select>
+        <div className='filter-item'>
+          <select
+            name='price'
+            value={state.price}
+            onChange={handleChange}
+          >
+            {dataFilter.price.map((op, i) => (
+              <option key={i} value={op.val}>
+                {op.lab}
+              </option>
+            ))}
+          </select>
+          <button
+            className='btn'
+            onClick={() => handleSearch('price')}
+          >
+            <BsSearch />
+          </button>
+        </div>
       </div>
 
-      <button
-        className='btn btn--search'
-        onClick={handleSearch}
-      >
-        Tìm kiếm
-      </button>
       <button className='btn btn--all' onClick={handleALl}>
         Xem tất cả
       </button>
