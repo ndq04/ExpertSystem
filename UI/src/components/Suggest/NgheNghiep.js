@@ -1,6 +1,12 @@
 import {useState} from 'react'
+import StepComponent from './StepComponent'
 
-function NgheNghiep({handleNN, navigation}) {
+function NgheNghiep({
+  handleNN,
+  navigation,
+  initStep,
+  handleStep,
+}) {
   const [ngheNghiepID, setNgheNghiepID] = useState('')
 
   const random = (data) => {
@@ -9,8 +15,8 @@ function NgheNghiep({handleNN, navigation}) {
   const nghenghiep = {
     congNhan: ['P_1', 'P_2'],
     giaoVien: ['P_1', 'P_2', 'P_3'],
-    bacSi: ['P_2', 'P_3'],
-    nhanVienVP: ['P_2', 'P_3', 'P_4'],
+    bacSi: ['P_2', 'P_3', 'P_4'],
+    nhanVienVP: ['P_2', 'P_3', 'P_4', 'P_5'],
     doanhNhan: ['P_3', 'P_4', 'P_5', 'P_6'],
   }
 
@@ -52,8 +58,13 @@ function NgheNghiep({handleNN, navigation}) {
   }
   const handleNext = () => {
     if (ngheNghiepID) {
+      handleStep(initStep + 1)
       navigation.next()
     } else alert('Vui lòng chọn nghề nghiệp của bạn !')
+  }
+  const handlePrev = () => {
+    navigation.previous()
+    handleStep(initStep - 1)
   }
   return (
     <div className='content content--nn'>
@@ -88,12 +99,13 @@ function NgheNghiep({handleNN, navigation}) {
           </button>
           <button
             className='btn btn--back'
-            onClick={() => navigation.previous()}
+            onClick={handlePrev}
           >
             Quay lại
           </button>
         </div>
       </div>
+      <StepComponent initStep={initStep} />
     </div>
   )
 }

@@ -1,6 +1,13 @@
 import {useState} from 'react'
+import StepComponent from './StepComponent'
 
-function GioiTinh({handleGT, navigation}) {
+function GioiTinh({
+  handleGT,
+  navigation,
+  initStep,
+
+  handleStep,
+}) {
   const [gioiTinhID, setGioiTinhID] = useState('')
 
   const random = (data) => {
@@ -44,8 +51,13 @@ function GioiTinh({handleGT, navigation}) {
   }
   const handleNext = () => {
     if (gioiTinhID) {
+      handleStep(initStep + 1)
       navigation.next()
     } else alert('Vui lòng chọn giới tính !')
+  }
+  const handlePrev = () => {
+    navigation.previous()
+    handleStep(initStep - 1)
   }
   return (
     <div className='content content--gt'>
@@ -80,12 +92,13 @@ function GioiTinh({handleGT, navigation}) {
           </button>
           <button
             className='btn btn--back'
-            onClick={() => navigation.previous()}
+            onClick={handlePrev}
           >
             Quay lại
           </button>
         </div>
       </div>
+      <StepComponent initStep={initStep} />
     </div>
   )
 }

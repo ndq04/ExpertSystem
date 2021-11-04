@@ -24,6 +24,7 @@ function Suggest() {
   const [ngheNghiepDesc, setNgheNghiepDesc] = useState('')
 
   const [sugestCars, setSugestCars] = useState([])
+  const [initStep, setInitStep] = useState(0)
 
   const handleGT = ({id, color, type, desc}) => {
     setGioiTinhID(id)
@@ -42,6 +43,10 @@ function Suggest() {
     setSoThich_P(price)
     setSoThichDesc(desc)
   }
+  const handleStep = (step) => {
+    setInitStep(step)
+  }
+
   const handleSugest = () => {
     fetch('http://127.0.0.1:2000/api/tuvan', {
       method: 'POST',
@@ -76,7 +81,13 @@ function Suggest() {
     initialStep: 0,
   })
 
-  const props = {name, setName, navigation}
+  const props = {
+    name,
+    setName,
+    navigation,
+    initStep,
+    handleStep,
+  }
   const values = {
     gioiTinhID,
     gioiTinh_C,

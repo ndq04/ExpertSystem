@@ -1,11 +1,20 @@
+import StepComponent from './StepComponent'
 import './Styles.css'
 
-function TrangChu({name, setName, navigation}) {
+function TrangChu({
+  name,
+  setName,
+  navigation,
+  initStep,
+  handleStep,
+}) {
   const handleNext = () => {
     if (name) {
+      handleStep(initStep + 1)
       navigation.next()
     } else alert('Vui lòng nhập tên của bạn !')
   }
+
   return (
     <div className='content'>
       <div className='form form-tc'>
@@ -22,6 +31,7 @@ function TrangChu({name, setName, navigation}) {
           Tiếp theo
         </button>
       </div>
+      <StepComponent initStep={initStep} />
     </div>
   )
 }

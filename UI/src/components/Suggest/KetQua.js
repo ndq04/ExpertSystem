@@ -5,7 +5,13 @@ import {BiBody} from 'react-icons/bi'
 import {useContext} from 'react'
 import {CarContext} from '../../contexts/CarContext'
 
-function KetQua({name, setName, navigation, ...values}) {
+function KetQua({
+  name,
+  setName,
+  navigation,
+  handleStep,
+  ...values
+}) {
   const {handleDetail} = useContext(CarContext)
   const {
     gioiTinhID,
@@ -22,6 +28,7 @@ function KetQua({name, setName, navigation, ...values}) {
   } = values
   const handleBackHome = () => {
     setName('')
+    handleStep(0)
     navigation.go(0)
   }
   const handleClick = (id) => {

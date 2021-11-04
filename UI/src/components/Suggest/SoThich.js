@@ -1,6 +1,13 @@
 import {useState} from 'react'
+import StepComponent from './StepComponent'
 
-function SoThich({handleST, navigation, handleSugest}) {
+function SoThich({
+  handleST,
+  navigation,
+  initStep,
+  handleStep,
+  handleSugest,
+}) {
   const [soThichID, setSoThichID] = useState('')
 
   const random = (data) => {
@@ -58,9 +65,14 @@ function SoThich({handleST, navigation, handleSugest}) {
   }
   const handleNext = () => {
     if (soThichID) {
+      handleStep(initStep + 1)
       navigation.next()
       handleSugest()
     } else alert('Vui lòng chọn sở thích của bạn !')
+  }
+  const handlePrev = () => {
+    navigation.previous()
+    handleStep(initStep - 1)
   }
   return (
     <div className='content content--st'>
@@ -96,12 +108,13 @@ function SoThich({handleST, navigation, handleSugest}) {
           </button>
           <button
             className='btn btn--back'
-            onClick={() => navigation.previous()}
+            onClick={handlePrev}
           >
             Quay lại
           </button>
         </div>
       </div>
+      <StepComponent initStep={initStep} />
     </div>
   )
 }
