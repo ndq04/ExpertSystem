@@ -23,8 +23,8 @@ function SoThich({
       P: ['P_2', 'P_3', 'P_4'],
     },
     S3: {
-      T: ['T_Se', 'T_Su'],
-      P: ['P_2', 'P_3', 'P_4'],
+      T: ['T_Su'],
+      P: ['P_2', 'P_3', 'P_4', 'P_5'],
     },
   }
   const soThich = [
