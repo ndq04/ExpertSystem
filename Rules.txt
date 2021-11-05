@@ -89,74 +89,332 @@
       -- Rule2: G1 : C_De (Giới tính: nam -> màu sắc : đen)
       -- Rule3: G1 : C_Do (Giới tính: nam -> màu sắc : đỏ)
       -- Rule4: S1 : T_M (Sở thích: du lịch -> dòng xe: Mini/Hatchback)
-      -- Rule5: N5,S1 : P_3 (Nghề nghiệp: doanh nhân, Sở thích: du lịch -> giá tiền : từ 800 đến 1,5 tỷ)
-      -- Rule6: N5,S1 : P_4 (Nghề nghiệp: doanh nhân, Sở thích: du lịch -> giá tiền : từ 1,5 tỷ đến 2,5 tỷ)
-      -- Rule7: N5,S1 : P_5 (Nghề nghiệp: doanh nhân, Sở thích: du lịch -> giá tiền : từ 2,5 tỷ đến 3,5 tỷ)
-      -- Rule8: N5,S1 : P_6 (Nghề nghiệp: doanh nhân, Sở thích: du lịch -> giá tiền : từ 3,5 tỷ đến trên 4 tỷ)
-      -- Rule9: G1,S1: T_Se (Giới tính: nam, Sở thích: du lịch -> dòng xe: Sedan)
-      -- Rule10: G1,S1: T_Su (Giới tính: nam, Sở thích: du lịch -> dòng xe: SUV)
+      -- Rule5: S1 : P_1 (Sở thích: du lịch -> giá tiền : từ 300 đến 500 triệu)
+      -- Rule6: S1 : P_2 (Sở thích: du lịch -> giá tiền : từ 500 đến 800 triệu)
+      -- Rule7: N5,S1 :P_3 (Nghề nghiệp: doanh nhân, Sở thích: du lịch -> giá tiền : từ 800 đến 1,5 tỷ)
+      -- Rule8: N1 : P_4 (Nghề nghiệp: doanh nhân -> giá tiền : từ 1,5 tỷ đến 2,5 tỷ)
+      -- Rule9: N1 : P_5 (Nghề nghiệp: doanh nhân -> giá tiền : từ 2,5 tỷ đến 3,5 tỷ)
+      -- Rule10: N1 : P_6 (Nghề nghiệp: doanh nhân -> giá tiền : từ 3,5 tỷ đến trên 4 tỷ)
+      -- Rule11: G1,S1: T_Se (Giới tính: nam, Sở thích: du lịch -> dòng xe: Sedan)
+      -- Rule12: G1,S1: T_Su (Giới tính: nam, Sở thích: du lịch -> dòng xe: SUV)
 
   ---- Nam, công nhân, thể thao, : G1, N1, S2
     --- RULES:
       -- Rule1: G1 : C_T (Giới tính: nam -> màu sắc : trắng)
       -- Rule2: G1 : C_De (Giới tính: nam -> màu sắc : đen)
-      -- Rule3: G1 : C_Do (Giới tính: nam -> màu sắc : đỏ)
-      -- Rule3: N1 : P_1 (Nghề nghiệp: công nhân -> giá tiền : từ 300 đến 500 triệu)
-      -- Rule4: N1,S2 : P_2 (Nghề nghiệp: công nhân, Sở thích: thể thao -> giá tiền : từ 500 đến 800 triệu)
-      -- Rule5: S2 : P_3 (Sở thích: thể thao -> giá tiền : từ 800 đến 1,5 tỷ)
-      -- Rule6: S2 : P_4 (Sở thích: thể thao -> giá tiền : từ 1,5 tỷ đến 2.5 tỷ)
-      -- Rule7: G1,S2: T_Se (Giới tính: nam, Sở thích: thể thao -> dòng xe: Sedan)
-      -- Rule8: G1,S2: T_Su (Giới tính: nam, Sở thích: thể thao -> dòng xe: SUV)
+      -- Rule4: G1 : C_Do (Giới tính: nam -> màu sắc : đỏ)
+      -- Rule5: N1 : P_1 (Nghề nghiệp: công nhân -> giá tiền : từ 300 đến 500 triệu)
+      -- Rule6: N1,S2 : P_2 (Nghề nghiệp: công nhân, Sở thích: thể thao -> giá tiền : từ 500 đến 800 triệu)
+      -- Rule7: S2 : P_3 (Sở thích: thể thao -> giá tiền : từ 800 đến 1,5 tỷ)
+      -- Rule8: S2 : P_4 (Sở thích: thể thao -> giá tiền : từ 1,5 tỷ đến 2.5 tỷ)
+      -- Rule9: G1,S2: T_Se (Giới tính: nam, Sở thích: thể thao -> dòng xe: Sedan)
+      -- Rule10: G1,S2: T_Su (Giới tính: nam, Sở thích: thể thao -> dòng xe: SUV)
 
   ---- Nam, giáo viên, thể thao, : G1, N2, S2
     --- RULES:
       -- Rule1: G1 : C_T (Giới tính: nam -> màu sắc : trắng)
       -- Rule2: G1 : C_De (Giới tính: nam -> màu sắc : đen)
       -- Rule3: G1 : C_Do (Giới tính: nam -> màu sắc : đỏ)
-      -- Rule3: N2 : (Nghề nghiệp: giáo viên -> giá tiền : từ 300 đến 500 triệu)
-      -- Rule4: N2,S2 : P_2 (Nghề nghiệp: giáo viên, Sở thích: thể thao -> giá tiền : từ 500 đến 800 triệu)
-      -- Rule5: S2 : P_3 (Sở thích: thể thao -> giá tiền : từ 800 đến 1,5 tỷ)
-      -- Rule6: S2 : P_4 (Sở thích: thể thao -> giá tiền : từ 1,5 tỷ đến 2.5 tỷ)
+      -- Rule4: N2 : P_1 (Nghề nghiệp: giáo viên -> giá tiền : từ 300 đến 500 triệu)
+      -- Rule5: N2,S2 : P_2 (Nghề nghiệp: giáo viên, Sở thích: thể thao -> giá tiền : từ 500 đến 800 triệu)
+      -- Rule6: S2 : P_3 (Sở thích: thể thao -> giá tiền : từ 800 đến 1,5 tỷ)
+      -- Rule7: S2 : P_4 (Sở thích: thể thao -> giá tiền : từ 1,5 tỷ đến 2.5 tỷ)
+      -- Rule8: G1,S2: T_Se (Giới tính: nam, Sở thích: thể thao -> dòng xe: Sedan)
+      -- Rule9: G1,S2: T_Su (Giới tính: nam, Sở thích: thể thao -> dòng xe: SUV)
+
+  ---- Nam, bác sĩ, thể thao, : G1, N3, S2
+    --- RULES:
+      -- Rule1: G1 : C_T (Giới tính: nam -> màu sắc : trắng)
+      -- Rule2: G1 : C_De (Giới tính: nam -> màu sắc : đen)
+      -- Rule3: G1 : C_Do (Giới tính: nam -> màu sắc : đỏ)
+      -- Rule4: N3,S2 : P_2 (Nghề nghiệp: bác sĩ, Sở thích: thể thao -> giá tiền : từ 500 đến 800 triệu)
+      -- Rule5: N3,S2 : P_3 (Nghề nghiệp: bác sĩ, Sở thích: thể thao -> giá tiền : từ 800 đến 1,5 tỷ)
+      -- Rule6: N3,S2 : P_4 (Nghề nghiệp: bác sĩ, Sở thích: thể thao -> giá tiền : từ 1,5 tỷ đến 2.5 tỷ)
       -- Rule7: G1,S2: T_Se (Giới tính: nam, Sở thích: thể thao -> dòng xe: Sedan)
       -- Rule8: G1,S2: T_Su (Giới tính: nam, Sở thích: thể thao -> dòng xe: SUV)
+
+  ---- Nam, nhân viên văn phòng, thể thao, : G1, N4, S2
+    --- RULES:
+      -- Rule1: G1 : C_T (Giới tính: nam -> màu sắc : trắng)
+      -- Rule2: G1 : C_De (Giới tính: nam -> màu sắc : đen)
+      -- Rule3: G1 : C_Do (Giới tính: nam -> màu sắc : đỏ)
+      -- Rule4: N4,S2 : P_2 (Nghề nghiệp: nhân viên văn phòng, Sở thích: thể thao -> giá tiền : từ 500 đến 800 triệu)
+      -- Rule5: N4,S2 : P_3 (Sở thích: thể thao -> giá tiền : từ 800 đến 1,5 tỷ)
+      -- Rule6: N4,S2 : P_4 (Sở thích: thể thao -> giá tiền : từ 1,5 tỷ đến 2.5 tỷ)
+      -- Rule7: N4 : P_5 (Nghề nghiệp: nhân viên văn phòng -> giá tiền : từ 2,5 tỷ đến 3.5 tỷ)
+      -- Rule8: G1,S2: T_Se (Giới tính: nam, Sở thích: thể thao -> dòng xe: Sedan)
+      -- Rule9: G1,S2: T_Su (Giới tính: nam, Sở thích: thể thao -> dòng xe: SUV)
+
+  ---- Nam, doanh nhân, thể thao, : G1, N5, S2
+    --- RULES:
+      -- Rule1: G1 : C_T (Giới tính: nam -> màu sắc : trắng)
+      -- Rule2: G1 : C_De (Giới tính: nam -> màu sắc : đen)
+      -- Rule3: G1 : C_Do (Giới tính: nam -> màu sắc : đỏ)
+      -- Rule5: S2 : P_2 (Sở thích: thể thao -> giá tiền : từ 500 đến 800 triệu)
+      -- Rule6: N5,S2 : P_3 (Sở thích: thể thao -> giá tiền : từ 800 đến 1,5 tỷ)
+      -- Rule7: N5,S2 : P_4 (Sở thích: thể thao -> giá tiền : từ 1,5 tỷ đến 2.5 tỷ)
+      -- Rule8: N5 : P_5 (Nghề nghiệp: doanh nhân -> giá tiền : từ 2,5 tỷ đến 3.5 tỷ)
+      -- Rule9: N5 : P_6 (Nghề nghiệp: doanh nhân -> giá tiền : từ 3,5 tỷ đến trên 4 tỷ)
+      -- Rule10: G1,S2: T_Se (Giới tính: nam, Sở thích: thể thao -> dòng xe: Sedan)
+      -- Rule11: G1,S2: T_Su (Giới tính: nam, Sở thích: thể thao -> dòng xe: SUV)
 
   ---- Nam, công nhân, khám phá-phiêu lưu, : G1, N1, S3
     --- RULES:
       -- Rule1: G1 : C_T (Giới tính: nam -> màu sắc : trắng)
       -- Rule2: G1 : C_De (Giới tính: nam -> màu sắc : đen)
       -- Rule3: G1 : C_Do (Giới tính: nam -> màu sắc : đỏ)
-      -- Rule4: N1,S3 : P_2 (Nghề nghiệp: công nhân, Sở thích: khám phá-phiêu lưu -> giá tiền : từ 500 đến 800 triệu)
-      -- Rule5: S3 : P_3 (Sở thích: khám phá-phiêu lưu -> giá tiền : từ 800 đến 1,5 tỷ)
-      -- Rule6: S3 : P_4 (Sở thích: khám phá-phiêu lưu -> giá tiền : từ 1,5 tỷ đến 2.5 tỷ)
-      -- Rule7: G1,S3: T_Se (Giới tính: nam, Sở thích: khám phá-phiêu lưu -> dòng xe: Sedan)
+      -- Rule4: N1 : P_1 (Nghề nghiệp: công nhân -> giá tiền : từ 300 đến 500 triệu)
+      -- Rule5: N1,S3 : P_2 (Nghề nghiệp: công nhân, Sở thích: khám phá-phiêu lưu -> giá tiền : từ 500 đến 800 triệu)
+      -- Rule6: S3 : P_3 (Sở thích: khám phá-phiêu lưu -> giá tiền : từ 800 đến 1,5 tỷ)
+      -- Rule7: S3 : P_4 (Sở thích: khám phá-phiêu lưu -> giá tiền : từ 1,5 tỷ đến 2.5 tỷ)
+      -- Rule8: S3 : P_5 (Sở thích: khám phá-phiêu lưu -> giá tiền : từ 2,5 tỷ đến 3.5 tỷ)
+      -- Rule9: G1,S3: T_Su (Giới tính: nam, Sở thích: khám phá-phiêu lưu -> dòng xe: SUV)
+
+  ---- Nam, giáo viên, khám phá-phiêu lưu, : G1, N2, S3
+    --- RULES:
+      -- Rule1: G1 : C_T (Giới tính: nam -> màu sắc : trắng)
+      -- Rule2: G1 : C_De (Giới tính: nam -> màu sắc : đen)
+      -- Rule3: G1 : C_Do (Giới tính: nam -> màu sắc : đỏ)
+      -- Rule4: N1 : P_1 (Nghề nghiệp: giáo viên -> giá tiền : từ 300 đến 500 triệu)
+      -- Rule5: N2,S3 : P_2 (Nghề nghiệp: giáo viên, Sở thích: khám phá-phiêu lưu -> giá tiền : từ 500 đến 800 triệu)
+      -- Rule6: N2,S3 : P_3 (Nghề nghiệp: giáo viên, Sở thích: khám phá-phiêu lưu -> giá tiền : từ 800 đến 1,5 tỷ)
+      -- Rule7: S3 : P_4 (Sở thích: khám phá-phiêu lưu -> giá tiền : từ 1,5 tỷ đến 2.5 tỷ)
+      -- Rule8: S3 : P_5 (Sở thích: khám phá-phiêu lưu -> giá tiền : từ 2,5 tỷ đến 3.5 tỷ)
+      -- Rule9: G1,S3: T_Su (Giới tính: nam, Sở thích: khám phá-phiêu lưu -> dòng xe: SUV)
+
+  ---- Nam, bác sĩ, khám phá-phiêu lưu, : G1, N3, S3
+    --- RULES:
+      -- Rule1: G1 : C_T (Giới tính: nam -> màu sắc : trắng)
+      -- Rule2: G1 : C_De (Giới tính: nam -> màu sắc : đen)
+      -- Rule3: G1 : C_Do (Giới tính: nam -> màu sắc : đỏ)
+      -- Rule4: N3,S3 : P_2 (Nghề nghiệp: bác sĩ, Sở thích: khám phá-phiêu lưu -> giá tiền : từ 500 đến 800 triệu)
+      -- Rule5: N3,S3 : P_3 (Nghề nghiệp: bác sĩ, Sở thích: khám phá-phiêu lưu -> giá tiền : từ 800 đến 1,5 tỷ)
+      -- Rule6: N3,S3 : P_4 (Nghề nghiệp: bác sĩ, Sở thích: khám phá-phiêu lưu -> giá tiền : từ 1,5 tỷ đến 2.5 tỷ)
+      -- Rule7: S3 : P_5 (Sở thích: khám phá-phiêu lưu -> giá tiền : từ 2,5 tỷ đến 3.5 tỷ)
       -- Rule8: G1,S3: T_Su (Giới tính: nam, Sở thích: khám phá-phiêu lưu -> dòng xe: SUV)
 
+  ---- Nam, nhân viên văn phòng, khám phá-phiêu lưu, : G1, N4, S3
+    --- RULES:
+      -- Rule1: G1 : C_T (Giới tính: nam -> màu sắc : trắng)
+      -- Rule2: G1 : C_De (Giới tính: nam -> màu sắc : đen)
+      -- Rule3: G1 : C_Do (Giới tính: nam -> màu sắc : đỏ)
+      -- Rule4: N4,S3 : P_2 (Nghề nghiệp: nhân viên văn phòng, Sở thích: khám phá-phiêu lưu -> giá tiền : từ 500 đến 800 triệu)
+      -- Rule5: N4,S3 : P_3 (Nghề nghiệp: nhân viên văn phòng, Sở thích: khám phá-phiêu lưu -> giá tiền : từ 800 đến 1,5 tỷ)
+      -- Rule6: N4,S3 : P_4 (Nghề nghiệp: nhân viên văn phòng, Sở thích: khám phá-phiêu lưu -> giá tiền : từ 1,5 tỷ đến 2.5 tỷ)
+      -- Rule7: N4,S3 : P_5 (Nghề nghiệp: nhân viên văn phòng, Sở thích: khám phá-phiêu lưu -> giá tiền : từ 2,5 tỷ đến 3.5 tỷ)
+      -- Rule8: G1,S3: T_Su (Giới tính: nam, Sở thích: khám phá-phiêu lưu -> dòng xe: SUV)
+
+  ---- Nam, doanh nhân, khám phá-phiêu lưu, : G1, N5, S3
+    --- RULES:
+      -- Rule1: G1 : C_T (Giới tính: nam -> màu sắc : trắng)
+      -- Rule2: G1 : C_De (Giới tính: nam -> màu sắc : đen)
+      -- Rule3: G1 : C_Do (Giới tính: nam -> màu sắc : đỏ)
+      -- Rule5: N5,S3 : P_3 (Nghề nghiệp: doanh nhân, Sở thích: khám phá-phiêu lưu -> giá tiền : từ 800 đến 1,5 tỷ)
+      -- Rule6: N5,S3 : P_4 (Nghề nghiệp: doanh nhân, Sở thích: khám phá-phiêu lưu -> giá tiền : từ 1,5 tỷ đến 2.5 tỷ)
+      -- Rule7: N5,S3 : P_5 (Nghề nghiệp: doanh nhân, Sở thích: khám phá-phiêu lưu -> giá tiền : từ 2,5 tỷ đến 3.5 tỷ)
+      -- Rule7: N5 : P_6 (Nghề nghiệp: doanh nhân -> giá tiền : từ 3,5 tỷ đến trên 4 tỷ)
+      -- Rule8: G1,S3: T_Su (Giới tính: nam, Sở thích: khám phá-phiêu lưu -> dòng xe: SUV)
 
 =====================================================================================================================================
 
 **** GIẢ THIẾT 2: Giới tính nữ
-  --- Nữ, công nhân, dòng xe đô thị cỡ nhỏ, hàn quốc, : G2, N1, D1, Q1
-    Rule1: G1:C_T
-    Rule2: G1:C_Do
-    Rule3: N1:P_1
-    Rule4: N1:P_2
-    Rule5: D1:T_M
-    Rule6: Q1:CO_K
-    Rule7: Q1:CO_Hy
+  ---- Nữ, công nhân, du lịch, : G2, N1, S1
+    --- RULES:
+      -- Rule1: G2 : C_T (Giới tính: nữ -> màu sắc : trắng)
+      -- Rule2: G2 : C_De (Giới tính: nữ -> màu sắc : đen)
+      -- Rule3: G2 : C_Do (Giới tính: nữ -> màu sắc : đỏ)
+      -- Rule4: G2,S1 : T_M (Giới tính: nữ, Sở thích: du lịch -> dòng xe: Mini/Hatchback)
+      -- Rule5: G2,S1: T_Se (Giới tính: nữ, Sở thích: du lịch -> dòng xe: Sedan)
+      -- Rule6: S1: T_Su (Sở thích: du lịch -> dòng xe: SUV)
+      -- Rule7: N1,S1 : P_1 (Nghề nghiệp: công nhân, Sở thích: du lịch -> giá tiền : từ 300 đến 500 triệu)
+      -- Rule8: N1,S1 : P_2 (Nghề nghiệp: công nhân, Sở thích: du lịch -> giá tiền : từ 500 đến 800 triệu)
+      -- Rule9: S1 : P_3 (Sở thích: du lịch -> giá tiền : từ 800 đến 1,5 tỷ)
 
-    => Kết quả từ tập suy diễn
-    -> Đối với hãng xe là KIA:
-        C_T, P_1, T_M, CO_K, OT13
-        C_Do, P_1, T_M, CO_K, OT15
-        C_T, P_2, T_M, CO_K, OT7
-        C_Do, P_2, T_M, CO_K, OT9
+  ---- Nữ, giáo viên, du lịch, : G2, N2, S1
+    --- RULES:
+      -- Rule1: G2 : C_T (Giới tính: nữ -> màu sắc : trắng)
+      -- Rule2: G2 : C_De (Giới tính: nữ -> màu sắc : đen)
+      -- Rule3: G2 : C_Do (Giới tính: nữ -> màu sắc : đỏ)
+      -- Rule4: G2,S1 : T_M (Giới tính: nữ, Sở thích: du lịch -> dòng xe: Mini/Hatchback)
+      -- Rule5: G2,S1: T_Se (Giới tính: nữ, Sở thích: du lịch -> dòng xe: Sedan)
+      -- Rule6: S1: T_Su (Sở thích: du lịch -> dòng xe: SUV)
+      -- Rule7: N2,S1 : P_1 (Nghề nghiệp: giáo viên, Sở thích: du lịch -> giá tiền : từ 300 đến 500 triệu)
+      -- Rule8: N2,S1 : P_2 (Nghề nghiệp: giáo viên, Sở thích: du lịch -> giá tiền : từ 500 đến 800 triệu)
+      -- Rule9: N2,S1 : P_3 (Nghề nghiệp: giáo viên, Sở thích: du lịch -> giá tiền : từ 800 đến 1,5 tỷ)
 
-    -> Đối với hãng xe là Hyundai:
-        C_T, P_1, T_M, CO_Hy, OT1
-        C_Do, P_1, T_M, CO_Hy, OT2
-        C_T, P_2, T_M, CO_Hy, OT176
-        C_Do, P_2, T_M, CO_Hy, OT178
+  ---- Nữ, bác sĩ, du lịch, : G2, N3, S1
+    --- RULES:
+      -- Rule1: G2 : C_T (Giới tính: nữ -> màu sắc : trắng)
+      -- Rule2: G2 : C_De (Giới tính: nữ -> màu sắc : đen)
+      -- Rule3: G2 : C_Do (Giới tính: nữ -> màu sắc : đỏ)
+      -- Rule4: G2,S1 : T_M (Giới tính: nữ, Sở thích: du lịch -> dòng xe: Mini/Hatchback)
+      -- Rule5: G2,S1: T_Se (Giới tính: nữ, Sở thích: du lịch -> dòng xe: Sedan)
+      -- Rule6: S1: T_Su (Sở thích: du lịch -> dòng xe: SUV)
+      -- Rule7: S1 : P_1 (Sở thích: du lịch -> giá tiền : từ 300 đến 500 triệu)
+      -- Rule8: N3,S1 : P_2 (Nghề nghiệp: bác sĩ, Sở thích: du lịch -> giá tiền : từ 500 đến 800 triệu)
+      -- Rule9: S1,S1 : P_3 (Nghề nghiệp: bác sĩ, Sở thích: du lịch -> giá tiền : từ 800 đến 1,5 tỷ)
+      -- Rule10: N3 : P_4 (Nghề nghiệp: bác sĩ -> giá tiền : từ 1,5 tỷ đến 2,5 tỷ)
 
+  ---- Nữ, nhân viên văn phòng, du lịch, : G2, N4, S1
+    --- RULES:
+      -- Rule1: G2 : C_T (Giới tính: nữ -> màu sắc : trắng)
+      -- Rule2: G2 : C_De (Giới tính: nữ -> màu sắc : đen)
+      -- Rule3: G2 : C_Do (Giới tính: nữ -> màu sắc : đỏ)
+      -- Rule4: G2,S1 : T_M (Giới tính: nữ, Sở thích: du lịch -> dòng xe: Mini/Hatchback)
+      -- Rule5: G2,S1: T_Se (Giới tính: nữ, Sở thích: du lịch -> dòng xe: Sedan)
+      -- Rule6: S1: T_Su (Sở thích: du lịch -> dòng xe: SUV)
+      -- Rule7: S1 : P_1 (Sở thích: du lịch -> giá tiền : từ 300 đến 500 triệu)
+      -- Rule8: N4,S1 : P_2 (Nghề nghiệp: nhân viên văn phòng, Sở thích: du lịch -> giá tiền : từ 500 đến 800 triệu)
+      -- Rule9: N4,S1 : P_3 (Nghề nghiệp: nhân viên văn phòng, Sở thích: du lịch -> giá tiền : từ 800 đến 1,5 tỷ)
+      -- Rule10: N4 : P_4 (Nghề nghiệp: nhân viên văn phòng -> giá tiền : từ 1,5 tỷ đến 2,5 tỷ)
+      -- Rule11: N4 : P_5 (Nghề nghiệp: nhân viên văn phòng -> giá tiền : từ 2,5 tỷ đến 3,5 tỷ)
 
+  ---- Nữ, doanh nhân, du lịch, : G2, N5, S1
+    --- RULES:
+      -- Rule1: G2 : C_T (Giới tính: nữ -> màu sắc : trắng)
+      -- Rule2: G2 : C_De (Giới tính: nữ -> màu sắc : đen)
+      -- Rule3: G2 : C_Do (Giới tính: nữ -> màu sắc : đỏ)
+      -- Rule4: G2,S1 : T_M (Giới tính: nữ, Sở thích: du lịch -> dòng xe: Mini/Hatchback)
+      -- Rule5: G2,S1: T_Se (Giới tính: nữ, Sở thích: du lịch -> dòng xe: Sedan)
+      -- Rule6: S1: T_Su (Sở thích: du lịch -> dòng xe: SUV)
+      -- Rule7: S1 : P_1 (Sở thích: du lịch -> giá tiền : từ 300 đến 500 triệu)
+      -- Rule8: S1 : P_2 (Sở thích: du lịch -> giá tiền : từ 500 đến 800 triệu)
+      -- Rule9: N5,S1 : P_3 (Nghề nghiệp: doanh nhân, Sở thích: du lịch -> giá tiền : từ 800 đến 1,5 tỷ)
+      -- Rule10: N5 : P_4 (Nghề nghiệp: doanh nhân -> giá tiền : từ 1,5 tỷ đến 2,5 tỷ)
+      -- Rule11: N5 : P_5 (Nghề nghiệp: doanh nhân -> giá tiền : từ 2,5 tỷ đến 3,5 tỷ)
+      -- Rule12: N5 : P_6 (Nghề nghiệp: doanh nhân -> giá tiền : từ 3,5 tỷ đến trên 4 tỷ)
+
+  ---- Nữ, công nhân, thể thao, : G2, N1, S2
+    --- RULES:
+      -- Rule1: G2 : C_T (Giới tính: nữ -> màu sắc : trắng)
+      -- Rule2: G2 : C_De (Giới tính: nữ -> màu sắc : đen)
+      -- Rule3: G2 : C_Do (Giới tính: nữ -> màu sắc : đỏ)
+      -- Rule4: G2: T_M (Giới tính: nữ -> dòng xe: Mini/Hatchback)
+      -- Rule5: G2,S2: T_Se (Giới tính: nữ, Sở thích: thể thao -> dòng xe: Sedan)
+      -- Rule6: S2: T_Su (Sở thích: thể thao -> dòng xe: SUV)
+      -- Rule7: N1,S2 : P_1 (Nghề nghiệp: công nhân, Sở thích: thể thao -> giá tiền : từ 300 đến 500 triệu)
+      -- Rule8: N1,S2 : P_2 (Nghề nghiệp: công nhân, Sở thích: thể thao -> giá tiền : từ 500 đến 800 triệu)
+      -- Rule9: S2 : P_3 (Sở thích: thể thao -> giá tiền : từ 800 đến 1,5 tỷ)
+      -- Rule10: S2 : P_4 (Sở thích: thể thao -> giá tiền : từ 1,5 tỷ đến 2,5 tỷ)
+
+  ---- Nữ, giáo viên, thể thao, : G2, N2, S2
+    --- RULES:
+      -- Rule1: G2 : C_T (Giới tính: nữ -> màu sắc : trắng)
+      -- Rule2: G2 : C_De (Giới tính: nữ -> màu sắc : đen)
+      -- Rule3: G2 : C_Do (Giới tính: nữ -> màu sắc : đỏ)
+      -- Rule4: G2: T_M (Giới tính: nữ -> dòng xe: Mini/Hatchback)
+      -- Rule5: G2,S2: T_Se (Giới tính: nữ, Sở thích: thể thao -> dòng xe: Sedan)
+      -- Rule6: S2: T_Su (Sở thích: thể thao -> dòng xe: SUV)
+      -- Rule7: N2 : P_1 (Nghề nghiệp: giáo viên: từ 300 đến 500 triệu)
+      -- Rule8: N2,S2 : P_2 (Nghề nghiệp: giáo viên, Sở thích: thể thao -> giá tiền : từ 500 đến 800 triệu)
+      -- Rule9: N2,S2 : P_3 (Nghề nghiệp: giáo viên, Sở thích: thể thao -> giá tiền : từ 800 đến 1,5 tỷ)
+      -- Rule10: S2 : P_4 (Sở thích: thể thao -> giá tiền : từ 1,5 tỷ đến 2,5 tỷ)
+
+  ---- Nữ, bác sĩ, thể thao, : G2, N3, S2
+    --- RULES:
+      -- Rule1: G2 : C_T (Giới tính: nữ -> màu sắc : trắng)
+      -- Rule2: G2 : C_De (Giới tính: nữ -> màu sắc : đen)
+      -- Rule3: G2 : C_Do (Giới tính: nữ -> màu sắc : đỏ)
+      -- Rule4: G2: T_M (Giới tính: nữ -> dòng xe: Mini/Hatchback)
+      -- Rule5: G2,S2: T_Se (Giới tính: nữ, Sở thích: thể thao -> dòng xe: Sedan)
+      -- Rule6: S2: T_Su (Sở thích: thể thao -> dòng xe: SUV)
+      -- Rule7: N3,S2 : P_2 (Nghề nghiệp: bác sĩ, Sở thích: thể thao -> giá tiền : từ 500 đến 800 triệu)
+      -- Rule8: N3,S2 : P_3 (Nghề nghiệp: bác sĩ, Sở thích: thể thao -> giá tiền : từ 800 đến 1,5 tỷ)
+      -- Rule9: N3,S2 : P_4 (Nghề nghiệp: bác sĩ, Sở thích: thể thao -> giá tiền : từ 1,5 tỷ đến 2,5 tỷ)
+
+  ---- Nữ, nhân viên văn phòng, thể thao, : G2, N4, S2
+    --- RULES:
+      -- Rule1: G2 : C_T (Giới tính: nữ -> màu sắc : trắng)
+      -- Rule2: G2 : C_De (Giới tính: nữ -> màu sắc : đen)
+      -- Rule3: G2 : C_Do (Giới tính: nữ -> màu sắc : đỏ)
+      -- Rule4: G2: T_M (Giới tính: nữ -> dòng xe: Mini/Hatchback)
+      -- Rule5: G2,S2: T_Se (Giới tính: nữ, Sở thích: thể thao -> dòng xe: Sedan)
+      -- Rule6: S2: T_Su (Sở thích: thể thao -> dòng xe: SUV)
+      -- Rule7: N4,S2 : P_2 (Nghề nghiệp: nhân viên văn phòng, Sở thích: thể thao -> giá tiền : từ 500 đến 800 triệu)
+      -- Rule8: N4,S2 : P_3 (Nghề nghiệp: nhân viên văn phòng, Sở thích: thể thao -> giá tiền : từ 800 đến 1,5 tỷ)
+      -- Rule9: N4,S2 : P_4 (Nghề nghiệp: nhân viên văn phòng, Sở thích: thể thao -> giá tiền : từ 1,5 tỷ đến 2,5 tỷ)
+      -- Rule10: N4 : P_5 (Nghề nghiệp: nhân viên văn phòng -> giá tiền : từ 2,5 tỷ đến 3,5 tỷ)
+
+  ---- Nữ, doanh nhân, thể thao, : G2, N5, S2
+    --- RULES:
+      -- Rule1: G2 : C_T (Giới tính: nữ -> màu sắc : trắng)
+      -- Rule2: G2 : C_De (Giới tính: nữ -> màu sắc : đen)
+      -- Rule3: G2 : C_Do (Giới tính: nữ -> màu sắc : đỏ)
+      -- Rule4: G2: T_M (Giới tính: nữ -> dòng xe: Mini/Hatchback)
+      -- Rule5: G2,S2: T_Se (Giới tính: nữ, Sở thích: thể thao -> dòng xe: Sedan)
+      -- Rule6: S2: T_Su (Sở thích: thể thao -> dòng xe: SUV)
+      -- Rule7: S2 : P_2 (Sở thích: thể thao -> giá tiền : từ 500 đến 800 triệu)
+      -- Rule8: N5,S2 : P_3 (Nghề nghiệp: doanh nhân, Sở thích: thể thao -> giá tiền : từ 800 đến 1,5 tỷ)
+      -- Rule9: N5,S2 : P_4 (Nghề nghiệp: doanh nhân, Sở thích: thể thao -> giá tiền : từ 1,5 tỷ đến 2,5 tỷ)
+      -- Rule10: N5 : P_5 (Nghề nghiệp: doanh nhân -> giá tiền : từ 2,5 tỷ đến 3,5 tỷ)
+      -- Rule11: N5 : P_6 (Nghề nghiệp: doanh nhân -> giá tiền : từ 3,5 tỷ đến trên 4 tỷ)
+
+	---- Nữ, công nhân, khám phá-phiêu lưu, : G2, N1, S3
+    --- RULES:
+      -- Rule1: G2 : C_T (Giới tính: nữ -> màu sắc : trắng)
+      -- Rule2: G2 : C_De (Giới tính: nữ -> màu sắc : đen)
+      -- Rule3: G2 : C_Do (Giới tính: nữ -> màu sắc : đỏ)
+      -- Rule4: G2: T_M (Giới tính: nữ -> dòng xe: Mini/Hatchback)
+      -- Rule5: G2: T_Se (Giới tính: nữ -> dòng xe: Sedan)
+      -- Rule6: S3: T_Su (Sở thích: khám phá-phiêu lưu -> dòng xe: SUV)
+      -- Rule7: N1 : P_1 (Nghề nghiệp: công nhân -> giá tiền : từ 300 đến 500 triệu)
+      -- Rule8: N1,S3 : P_2 (Nghề nghiệp: công nhân, Sở thích: khám phá-phiêu lưu -> giá tiền : từ 500 đến 800 triệu)
+      -- Rule9: S3 : P_3 (Sở thích: khám phá-phiêu lưu -> giá tiền : từ 800 đến 1,5 tỷ)
+      -- Rule10: S3 : P_4 (Sở thích: khám phá-phiêu lưu -> giá tiền : từ 1,5 tỷ đến 2,5 tỷ)
+      -- Rule11: S3 : P_5 (Sở thích: khám phá-phiêu lưu -> giá tiền : từ 2,5 tỷ đến 3,5 tỷ)
+
+	---- Nữ, giáo viên, khám phá-phiêu lưu, : G2, N2, S3
+    --- RULES:
+      -- Rule1: G2 : C_T (Giới tính: nữ -> màu sắc : trắng)
+      -- Rule2: G2 : C_De (Giới tính: nữ -> màu sắc : đen)
+      -- Rule3: G2 : C_Do (Giới tính: nữ -> màu sắc : đỏ)
+      -- Rule4: G2: T_M (Giới tính: nữ -> dòng xe: Mini/Hatchback)
+      -- Rule5: G2: T_Se (Giới tính: nữ -> dòng xe: Sedan)
+      -- Rule6: S3: T_Su (Sở thích: khám phá-phiêu lưu -> dòng xe: SUV)
+      -- Rule7: N2 : P_1 (Nghề nghiệp: giáo viên -> giá tiền : từ 300 đến 500 triệu)
+      -- Rule8: N2,S3 : P_2 (Nghề nghiệp: giáo viên, Sở thích: khám phá-phiêu lưu -> giá tiền : từ 500 đến 800 triệu)
+      -- Rule9: N2,S3 : P_3 (Nghề nghiệp: giáo viên, Sở thích: khám phá-phiêu lưu -> giá tiền : từ 800 đến 1,5 tỷ)
+      -- Rule10: S3 : P_4 (Sở thích: khám phá-phiêu lưu -> giá tiền : từ 1,5 tỷ đến 2,5 tỷ)
+      -- Rule11: S3 : P_5 (Sở thích: khám phá-phiêu lưu -> giá tiền : từ 2,5 tỷ đến 3,5 tỷ)
+
+	---- Nữ, bác sĩ, khám phá-phiêu lưu, : G2, N3, S3
+    --- RULES:
+      -- Rule1: G2 : C_T (Giới tính: nữ -> màu sắc : trắng)
+      -- Rule2: G2 : C_De (Giới tính: nữ -> màu sắc : đen)
+      -- Rule3: G2 : C_Do (Giới tính: nữ -> màu sắc : đỏ)
+      -- Rule4: G2: T_M (Giới tính: nữ -> dòng xe: Mini/Hatchback)
+      -- Rule5: G2: T_Se (Giới tính: nữ -> dòng xe: Sedan)
+      -- Rule6: S3: T_Su (Sở thích: khám phá-phiêu lưu -> dòng xe: SUV)
+      -- Rule8: N3,S3 : P_2 (Nghề nghiệp: bác sĩ, Sở thích: khám phá-phiêu lưu -> giá tiền : từ 500 đến 800 triệu)
+      -- Rule9: N3,S3 : P_3 (Nghề nghiệp: bác sĩ, Sở thích: khám phá-phiêu lưu -> giá tiền : từ 800 đến 1,5 tỷ)
+      -- Rule10: N3,S3 : P_4 (Nghề nghiệp: bác sĩ, Sở thích: khám phá-phiêu lưu -> giá tiền : từ 1,5 tỷ đến 2,5 tỷ)
+      -- Rule11: S3 : P_5 (Sở thích: khám phá-phiêu lưu -> giá tiền : từ 2,5 tỷ đến 3,5 tỷ)
 	
+  ---- Nữ, nhân viên văn phòng, khám phá-phiêu lưu, : G2, N4, S3
+    --- RULES:
+      -- Rule1: G2 : C_T (Giới tính: nữ -> màu sắc : trắng)
+      -- Rule2: G2 : C_De (Giới tính: nữ -> màu sắc : đen)
+      -- Rule3: G2 : C_Do (Giới tính: nữ -> màu sắc : đỏ)
+      -- Rule4: G2: T_M (Giới tính: nữ -> dòng xe: Mini/Hatchback)
+      -- Rule5: G2: T_Se (Giới tính: nữ -> dòng xe: Sedan)
+      -- Rule6: S3: T_Su (Sở thích: khám phá-phiêu lưu -> dòng xe: SUV)
+      -- Rule8: N4,S3 : P_2 (Nghề nghiệp: nhân viên văn phòng, Sở thích: khám phá-phiêu lưu -> giá tiền : từ 500 đến 800 triệu)
+      -- Rule9: N4,S3 : P_3 (Nghề nghiệp: nhân viên văn phòng, Sở thích: khám phá-phiêu lưu -> giá tiền : từ 800 đến 1,5 tỷ)
+      -- Rule10: N4,S3 : P_4 (Nghề nghiệp: nhân viên văn phòng, Sở thích: khám phá-phiêu lưu -> giá tiền : từ 1,5 tỷ đến 2,5 tỷ)
+      -- Rule11: N4,S3 : P_5 (Nghề nghiệp: nhân viên văn phòng, Sở thích: khám phá-phiêu lưu -> giá tiền : từ 2,5 tỷ đến 3,5 tỷ)
+
+  ---- Nữ, doanh nhân, khám phá-phiêu lưu, : G2, N5, S3
+    --- RULES:
+      -- Rule1: G2 : C_T (Giới tính: nữ -> màu sắc : trắng)
+      -- Rule2: G2 : C_De (Giới tính: nữ -> màu sắc : đen)
+      -- Rule3: G2 : C_Do (Giới tính: nữ -> màu sắc : đỏ)
+      -- Rule4: G2: T_M (Giới tính: nữ -> dòng xe: Mini/Hatchback)
+      -- Rule5: G2: T_Se (Giới tính: nữ -> dòng xe: Sedan)
+      -- Rule6: S3: T_Su (Sở thích: khám phá-phiêu lưu -> dòng xe: SUV)
+      -- Rule8: S3 : P_2 (Sở thích: khám phá-phiêu lưu -> giá tiền : từ 500 đến 800 triệu)
+      -- Rule9: N5,S3 : P_3 (Nghề nghiệp: doanh nhân, Sở thích: khám phá-phiêu lưu -> giá tiền : từ 800 đến 1,5 tỷ)
+      -- Rule10: N5,S3 : P_4 (Nghề nghiệp: doanh nhân, Sở thích: khám phá-phiêu lưu -> giá tiền : từ 1,5 tỷ đến 2,5 tỷ)
+      -- Rule11: N5,S3 : P_5 (Nghề nghiệp: doanh nhân, Sở thích: khám phá-phiêu lưu -> giá tiền : từ 2,5 tỷ đến 3,5 tỷ)
+      -- Rule11: N5 : P_6 (Nghề nghiệp: doanh nhân -> giá tiền : từ 3,5 tỷ đến trên 4 tỷ)
+
 
