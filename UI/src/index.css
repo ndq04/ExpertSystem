@@ -83,3 +83,17 @@ img {
 .header ul li a:hover::before {
   width: 100%;
 }
+.error-page {
+  position: relative;
+  height: 90vh;
+  background-image: url(https://cdn.dribbble.com/users/4672508/screenshots/11584848/media/bf99e1c02486a053bffcf88366923dae.jpg);
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.error-page a {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-60%);
+}
