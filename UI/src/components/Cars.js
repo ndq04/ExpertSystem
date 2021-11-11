@@ -6,6 +6,7 @@ import Empty from './Empty'
 
 function Cars() {
   const {cars} = useContext(CarContext)
+  if (!cars) return
   return cars.length > 0 ? (
     <div className='cars'>
       <ul className='cars-content'>
