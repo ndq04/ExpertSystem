@@ -1,44 +1,12 @@
 import {useContext} from 'react'
 import {useHistory} from 'react-router-dom'
 import {CarContext} from '../contexts/CarContext'
+import {getColor, getColorCss, getType} from './getMethods'
 
 function Detail() {
   const {car} = useContext(CarContext)
   const history = useHistory()
-  const getColor = (color) => {
-    switch (color) {
-      case 'C_T':
-        return 'Trắng'
-      case 'C_De':
-        return 'Đen'
-      case 'C_X':
-        return 'Xanh'
-      default:
-        return 'Đỏ'
-    }
-  }
-  const getColorCss = (color) => {
-    switch (color) {
-      case 'C_T':
-        return 'gray'
-      case 'C_De':
-        return '#000'
-      case 'C_X':
-        return '#326dee'
-      default:
-        return '#e41414'
-    }
-  }
-  const getType = (value) => {
-    switch (value) {
-      case 'T_M':
-        return 'Mini/Hatchback'
-      case 'T_Se':
-        return 'Sedan'
-      default:
-        return 'SUV'
-    }
-  }
+
   return (
     <div className='car-detail'>
       <div className='car-detail-container'>
