@@ -5,7 +5,7 @@ from flask_cors import CORS, cross_origin
 app = Flask(__name__)
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = '78264326'
+app.config['MYSQL_PASSWORD'] = '123456'
 app.config['MYSQL_DB'] = 'showroom'  
 
 mysql = MySQL(app)
@@ -29,6 +29,7 @@ def showroom():
     cursor.execute(sql_str)
     data=cursor.fetchall()
     cars=[]
+    print('data', data)
     for item in data:
       car={'id':item[0],'name':item[1],'image':item[2], 'price':item[3], 'color':item[4],'type':item[5]}
       cars.append(car)
